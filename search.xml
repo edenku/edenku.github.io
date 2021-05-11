@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>git常用使用命令</title>
-    <url>/2021/05/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-  </entry>
-  <entry>
     <title>hexo（二）:将博客推送至github</title>
     <url>/2021/05/11/hexo%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0github/</url>
     <content><![CDATA[<h3 id="操作步骤。"><a href="#操作步骤。" class="headerlink" title="操作步骤。"></a>操作步骤。</h3><p> 登录github，并创建public仓库。</p>
@@ -24,15 +16,23 @@
  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可</span><br><span class="line">ssh-keygen -t rsa -C “m***n_11@126.com” </span><br></pre></td></tr></table></figure>
 <p> github网站，头像-&gt; settings-&gt; SSH and GPG keys -&gt; New SSh Key </p>
 <p> 将电脑上C:\Users.ssh 中的id_rsa.pub中的内容 复制到key中，title自定义即可。</p>
-<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a> 测试下链接，当看到</p>
+<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a> 测试下链接，当看到</p>
 <p> <code>Hi jack! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
 <p> 说明配置成功，再推送就可以免密推送了。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#109;</a>:jack/jack.github.io.git这种。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;</a>:jack/jack.github.io.git这种。</p>
 <pre><code>修改后推送成功。
 </code></pre>
 ]]></content>
       <categories>
         <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>git常用使用命令</title>
+    <url>/2021/05/11/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>git</category>
       </categories>
   </entry>
   <entry>
@@ -138,6 +138,47 @@ live2d-widget-model-z16
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a href="https://blog.csdn.net/as480133937/article/details/100138838/">Hexo-Next 主题博客个性化配置超详细，超全面</a></li>
 </ul>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>hexo（三）使用gitee搭建自己的图床</title>
+    <url>/2021/05/11/hexo%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8gitee%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="gitee创建个人repo"><a href="#gitee创建个人repo" class="headerlink" title="gitee创建个人repo"></a>gitee创建个人repo</h2><p>使用gitee创建一个public仓库image_repo</p>
+<h2 id="下载picGo"><a href="#下载picGo" class="headerlink" title="下载picGo"></a>下载picGo</h2><p>  <a href="https://molunerfinn.com/PicGo/">官网</a> 下载picGo，windows直接选择exe版本。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511164334718.png" alt="image-20210511164334718"></p>
+<p>下载完成，傻瓜安装完成即可。</p>
+<span id="more"></span>
+
+<h3 id="创建私人令牌"><a href="#创建私人令牌" class="headerlink" title="创建私人令牌"></a>创建私人令牌</h3><p>头像 –&gt; 设置 –&gt; 私人令牌 –&gt; 生成令牌</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511164833637.png" alt="image-20210511164833637"></p>
+<p>输入密码，生成令牌，复制后面备用。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511164930817.png" alt="image-20210511164930817"></p>
+<p>如果没有复制下来，可以点击修改，重新生成一个。</p>
+<h3 id="picGo配置"><a href="#picGo配置" class="headerlink" title="picGo配置"></a>picGo配置</h3><ul>
+<li><p>安装gitee插件</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511165157933.png" alt="image-20210511165157933"></p>
+<p>安装后重新打开软件，图床设置，找到gitee菜单。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511165510260.png" alt="image-20210511165510260"></p>
+<p>repo设置右上角圈出的部分。token使用我们上面生成的令牌。然后确定，并设置为默认图床。</p>
+</li>
+<li><p>使用</p>
+<p>接下来就可以使用picGo上传图片了。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511165940775.png" alt="image-20210511165940775"></p>
+<p>上传区上传图片，相册菜单负责管理图片。</p>
+</li>
+</ul>
+<h3 id="Typora配置picGo"><a href="#Typora配置picGo" class="headerlink" title="Typora配置picGo"></a>Typora配置picGo</h3><blockquote>
+<p>typoRa是一个极致简洁的markdown编辑器，即时渲染。</p>
+</blockquote>
+<p>下载链接: <a href="https://www.typora.io/#windows">https://www.typora.io/#windows</a></p>
+<p>一路默认安装，打开软件后，文件 –&gt; 偏好设置。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511170603136.png" alt="image-20210511170603136"></p>
+<p>根据图中配置后，可以验证图片上传。出现下图即为配置成功。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210511170650016.png" alt="image-20210511170650016"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此一个免费的博客图床就配置好了。</p>
 ]]></content>
       <categories>
         <category>hexo</category>
