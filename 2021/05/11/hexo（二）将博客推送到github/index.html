@@ -28,7 +28,7 @@
 <meta property="og:description" content="操作步骤。 登录github，并创建public仓库。  仓库名命名格式：如果帐号名为jack，则repository为jack.github.io 安装deploy扩展在跟目录(2021-blog)内，执行npm install hexo-deployer-git --save 安装部署的扩展。 修改站点配置1234deploy:  type: git  repo: git@github.com">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-11T03:31:21.459Z">
+<meta property="article:modified_time" content="2021-05-11T03:41:20.670Z">
 <meta property="article:author" content="Eden 懒散老马">
 <meta name="twitter:card" content="summary">
 
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">操作步骤。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85deploy%E6%89%A9%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">安装deploy扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">修改站点配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81"><span class="nav-number">4.</span> <span class="nav-text">推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86"><span class="nav-number">5.</span> <span class="nav-text">github添加免密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE"><span class="nav-number">6.</span> <span class="nav-text">github多账号配置</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">操作步骤。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85deploy%E6%89%A9%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">安装deploy扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%AB%99%E7%82%B9%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">修改站点配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81"><span class="nav-number">4.</span> <span class="nav-text">推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github%E6%B7%BB%E5%8A%A0%E5%85%8D%E5%AF%86"><span class="nav-number">5.</span> <span class="nav-text">github添加免密</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -231,7 +231,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-05-11 00:00:00 / 修改时间：11:31:21" itemprop="dateCreated datePublished" datetime="2021-05-11T00:00:00+08:00">2021-05-11</time>
+      <time title="创建时间：2021-05-11 00:00:00 / 修改时间：11:41:20" itemprop="dateCreated datePublished" datetime="2021-05-11T00:00:00+08:00">2021-05-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -251,7 +251,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
+      <span>859</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -282,30 +282,12 @@
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可</span><br><span class="line">ssh-keygen -t rsa -C “m***n_11@126.com” </span><br></pre></td></tr></table></figure>
 <p> github网站，头像-&gt; settings-&gt; SSH and GPG keys -&gt; New SSh Key </p>
 <p> 将电脑上C:\Users.ssh 中的id_rsa.pub中的内容 复制到key中，title自定义即可。</p>
-<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#x62;&#46;&#99;&#111;&#109;</a> 测试下链接，当看到</p>
+<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;</a> 测试下链接，当看到</p>
 <p> <code>Hi jack! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
 <p> 说明配置成功，再推送就可以免密推送了。</p>
-<blockquote>
-<blockquote>
-<p>我这里后来推送，免密没有成功。源于我自己github多个账号的原因，所以这里需要重新调整下</p>
-</blockquote>
-</blockquote>
-<h3 id="github多账号配置"><a href="#github多账号配置" class="headerlink" title="github多账号配置"></a>github多账号配置</h3><ul>
-<li>重新生成ssh秘钥</li>
-</ul>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可,生成秘钥邮箱最好和账号邮箱一致</span><br><span class="line">ssh-keygen -t rsa -C “jack@126.com” </span><br><span class="line">Enter file in which to save the key (C:\Users\ci22578/.ssh/id_rsa): C:\Users\ci22578/.ssh/id_rsa_github_eden</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不能设置全局的username和email</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS D:\gitee-blog\2021-blog&gt; git config --global --unset user.name</span><br><span class="line">PS D:\gitee-blog\2021-blog&gt; git config --global --unset user.email</span><br></pre></td></tr></table></figure>
-<ul>
-<li>用jack账号提交，在目录设置jack的账号和邮箱</li>
-</ul>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS D:\gitee-blog\2021-blog\.deploy_git&gt; git config user.name &quot;jack&quot;</span><br><span class="line">PS D:\gitee-blog\2021-blog\.deploy_git&gt; git config user.email &quot;jack@qq.com&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>配置config</li>
-<li>dddd</li>
-</ul>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;</a>:jack/jack.github.io.git这种。</p>
+<pre><code>修改后推送成功。
+</code></pre>
 
     </div>
 
