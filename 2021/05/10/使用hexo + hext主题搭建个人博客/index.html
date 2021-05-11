@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_48px.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_48px.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="准备工作安装nodejs  从官网下载最新的安装版本。Windows Installer (.msi) 64-bit   这里也可以从淘宝镜像去下载。   一路默认下一步安装。 安装Hexo npm install -g hexo全局安装hexo。  报错信息：  Q：npm WARN deprecated titlecase@1.1.2: no longer maintained  A：npm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo（一）:使用hexo + hext主题搭建个人博客">
+<meta property="og:url" content="http://example.com/2021/05/10/%E4%BD%BF%E7%94%A8hexo%20+%20hext%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="准备工作安装nodejs  从官网下载最新的安装版本。Windows Installer (.msi) 64-bit   这里也可以从淘宝镜像去下载。   一路默认下一步安装。 安装Hexo npm install -g hexo全局安装hexo。  报错信息：  Q：npm WARN deprecated titlecase@1.1.2: no longer maintained  A：npm">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-11T03:31:11.241Z">
+<meta property="article:author" content="Eden 懒散老马">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/05/10/%E4%BD%BF%E7%94%A8hexo%20+%20hext%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;05&#x2F;10&#x2F;%E4%BD%BF%E7%94%A8hexo%20+%20hext%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;10&#x2F;使用hexo + hext主题搭建个人博客&#x2F;&quot;,&quot;title&quot;:&quot;hexo（一）:使用hexo + hext主题搭建个人博客&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>hexo（一）:使用hexo + hext主题搭建个人博客 | Hexo</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一条瞎扑腾的咸鱼</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nodejs"><span class="nav-number">1.1.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="nav-number">1.2.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%86%E5%A4%87github%E5%B8%90%E5%8F%B7"><span class="nav-number">1.3.</span> <span class="nav-text">准备github帐号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-number">1.4.</span> <span class="nav-text">安装git.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">创建本地博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%A3%80%E6%B5%8B"><span class="nav-number">2.1.</span> <span class="nav-text">环境检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.2.</span> <span class="nav-text">初始化项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">2.3.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">2.4.</span> <span class="nav-text">修改博客基本信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEnext%E4%B8%BB%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">配置next主题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDnext%E4%B8%BB%E9%A2%98%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">下载next主题。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%94%E7%94%A8next%E4%B8%BB%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">应用next主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AE%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">next扩展配置。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E9%A2%98%E6%A0%B7%E5%BC%8F%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">主题样式配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E5%BA%95%E9%83%A8next-%E5%BC%BA%E5%8A%9B%E9%A9%B1%E5%8A%A8%E5%AD%97%E6%A0%B7%E3%80%82"><span class="nav-number">4.2.</span> <span class="nav-text">隐藏底部next &#x2F; 强力驱动字样。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Local-Search-%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2"><span class="nav-number">4.3.</span> <span class="nav-text">Local Search 本地搜索</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87"><span class="nav-number">4.4.</span> <span class="nav-text">设置网站图标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E9%98%85%E8%AF%BB%E6%97%B6%E9%95%BF"><span class="nav-number">4.5.</span> <span class="nav-text">增加文章字数统计和阅读时长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%A6%B9%E5%AD%90"><span class="nav-number">4.6.</span> <span class="nav-text">博客加妹子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%8D%E5%88%B6"><span class="nav-number">4.7.</span> <span class="nav-text">代码复制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Eden 懒散老马</p>
+  <div class="site-description" itemprop="description">一条瞎扑腾的咸鱼</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/10/%E4%BD%BF%E7%94%A8hexo%20+%20hext%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hexo（一）:使用hexo + hext主题搭建个人博客
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-10T00:00:00+08:00">2021-05-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-11 11:31:11" itemprop="dateModified" datetime="2021-05-11T11:31:11+08:00">2021-05-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h4><p>  从<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">官网</a>下载最新的安装版本。Windows Installer (.msi) 64-bit</p>
+<p>  这里也可以从<a target="_blank" rel="noopener" href="https://npm.taobao.org/">淘宝镜像</a>去下载。</p>
+<p>  一路默认下一步安装。</p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p> <code>npm install -g hexo</code>全局安装hexo。</p>
+<p> 报错信息：</p>
+<p> Q：<code>npm WARN deprecated titlecase@1.1.2: no longer maintained</code></p>
+<p> A：<code>npm -v</code>查看npm版本，<code>npm install -g npm </code>更新版本即可。</p>
+<span id="more"></span>
+
+<h4 id="准备github帐号"><a href="#准备github帐号" class="headerlink" title="准备github帐号"></a>准备github帐号</h4><p>注册github帐号</p>
+<p>新建一个repository，名称为 <code>yourname.github.io</code>，我的帐号名为<code>e***u</code>，故我的repository为<code>e***u.github.io</code>。</p>
+<h4 id="安装git"><a href="#安装git" class="headerlink" title="安装git."></a>安装git.</h4><p> 从<a target="_blank" rel="noopener" href="https://git-scm.com/download/win">官网</a>选择64位下载。</p>
+<p> 一路默认下一步安装。</p>
+<h3 id="创建本地博客"><a href="#创建本地博客" class="headerlink" title="创建本地博客"></a>创建本地博客</h3><h4 id="环境检测"><a href="#环境检测" class="headerlink" title="环境检测"></a>环境检测</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node -v // 检测node是否正常安装</span><br><span class="line">hexo -v // 检测hexo是否正常安装</span><br><span class="line">npm -v  // 检测npm 是否正常安装</span><br><span class="line">git --version //检测git版本</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h4>   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Eden\gitee-blog&gt; hexo init 2021-blog</span><br></pre></td></tr></table></figure>
+<p>   执行命令时，报”无法加载文件 C:\Users\ci22578\AppData\Roaming\npm\hexo.ps1，因为在此系统上禁止运行脚本。“。</p>
+<p>   以管理员身份运行 powershell, 并执行 set-ExecutionPolicy RemoteSigned 命令，将计算机上的执行策略更改为 RemoteSigned，即可。</p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\Eden\gitee-blog\2021-blog&gt; hexo s [-p 端口号]  //启动，默认端口4000</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改博客基本信息"><a href="#修改博客基本信息" class="headerlink" title="修改博客基本信息"></a>修改博客基本信息</h4><pre><code>修改博客根目录下的_config.yml文件，后面称站点配置。
+</code></pre>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> # Site 博客主配置信息</span><br><span class="line">title: Hexo                             # 博客名称</span><br><span class="line">subtitle: &#x27;一条瞎扑腾的咸鱼&#x27;            # 博客子标题</span><br><span class="line">description: &#x27;一条瞎扑腾的咸鱼&#x27;         # 作者描述</span><br><span class="line">keywords:                               # 站点关键字，用于搜索优化</span><br><span class="line">author: Eden 懒散老马                   # 博主名</span><br><span class="line">language: zh-CN                         # 站点语言</span><br><span class="line">timezone: &#x27;Asia/Shanghai&#x27;               # 时区	 </span><br></pre></td></tr></table></figure>
+
+<h3 id="配置next主题"><a href="#配置next主题" class="headerlink" title="配置next主题"></a>配置next主题</h3><h4 id="下载next主题。"><a href="#下载next主题。" class="headerlink" title="下载next主题。"></a>下载next主题。</h4><p>  git clone <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a> themes/next</p>
+<p>  访问不了也可以在gitee上搜索别人同步过来的。</p>
+<p>  如果在博客根目录按上面命令下载，则直接跳过。如果是在其他目录下载，则将下载文件夹更名为next，拖放到博客目录中themes目录下。</p>
+<h4 id="应用next主题"><a href="#应用next主题" class="headerlink" title="应用next主题"></a>应用next主题</h4><pre><code>修改站点配置（2021-blog\_config.yml)。
+</code></pre>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> # Extensions 扩展信息配置</span><br><span class="line">theme: next	                            # 主题设置为我们的next主题，默认是landscape</span><br></pre></td></tr></table></figure>
+<h3 id="next扩展配置。"><a href="#next扩展配置。" class="headerlink" title="next扩展配置。"></a>next扩展配置。</h3><h4 id="主题样式配置"><a href="#主题样式配置" class="headerlink" title="主题样式配置"></a>主题样式配置</h4><pre><code>修改主题目录下的_config.yml配置
+</code></pre>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Menu Settings 菜单设置</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line">menu:</span><br><span class="line">home: / || fa fa-home</span><br><span class="line">#about: /about/ || fa fa-user</span><br><span class="line">tags: /tags/ || fa fa-tags</span><br><span class="line">categories: /categories/ || fa fa-th</span><br><span class="line">archives: /archives/ || fa fa-archive</span><br><span class="line">#schedule: /schedule/ || fa fa-calendar</span><br><span class="line">#sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">#commonweal: /404/ || fa fa-heartbeat</span><br><span class="line"></span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings 样式设置</span><br><span class="line"># --------------------------------------------------------------- </span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">scheme: Pisces </span><br><span class="line">#scheme: Gemini</span><br><span class="line"></span><br><span class="line"># Dark Mode</span><br><span class="line">darkmode: false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="隐藏底部next-强力驱动字样。"><a href="#隐藏底部next-强力驱动字样。" class="headerlink" title="隐藏底部next / 强力驱动字样。"></a>隐藏底部next / 强力驱动字样。</h4><p>  themes\next\layout_partials目录中找到footer.njk（不同版本的文件扩展名可能不同）</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">用 &lt;!-- --!&gt; 包住下面这段代码 或 直接删除</span><br><span class="line">&lt;!--</span><br><span class="line">&#123;%- if theme.footer.powered %&#125;</span><br><span class="line">  &lt;div class=&quot;powered-by&quot;&gt;</span><br><span class="line">	&#123;%- set next_site = &#x27;https://theme-next.js.org&#x27; if theme.scheme === &#x27;Gemini&#x27; else &#x27;https://theme-next.js.org/&#x27; + theme.scheme | lower + &#x27;/&#x27; %&#125;</span><br><span class="line">	&#123;&#123;- __(&#x27;footer.powered&#x27;, next_url(&#x27;https://hexo.io&#x27;, &#x27;Hexo&#x27;, &#123;class: &#x27;theme-link&#x27;&#125;) + &#x27; &amp; &#x27; + next_url(next_site, &#x27;NexT.&#x27; + theme.scheme, &#123;class: &#x27;theme-link&#x27;&#125;)) &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br><span class="line">--!&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Local-Search-本地搜索"><a href="#Local-Search-本地搜索" class="headerlink" title="Local Search 本地搜索"></a>Local Search 本地搜索</h4><p>  安装插件 hexo-generator-searchdb</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>  修改根目录_config.yml，添加下面配置到文件末尾。</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+<p>  修改主题配置_config.yml,启用本地搜索</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https://github.com/next-theme/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+<h4 id="设置网站图标"><a href="#设置网站图标" class="headerlink" title="设置网站图标"></a>设置网站图标</h4><p>  去easyicon找个图标</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/favicon_48px.ico</span><br><span class="line">  medium: /images/favicon_48px.ico</span><br><span class="line">  apple_touch_icon: /images/apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br></pre></td></tr></table></figure>
+<h4 id="增加文章字数统计和阅读时长"><a href="#增加文章字数统计和阅读时长" class="headerlink" title="增加文章字数统计和阅读时长"></a>增加文章字数统计和阅读时长</h4><p>  Dependencies: <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-word-counter">https://github.com/next-theme/hexo-word-counter</a> 目前设置没有生效，后续跟踪查看。</p>
+<h4 id="博客加妹子"><a href="#博客加妹子" class="headerlink" title="博客加妹子"></a>博客加妹子</h4><p>  npm install -save hexo-helper-live2d</p>
+<p>  修改站点配置文件</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: false</span><br><span class="line">  log: false</span><br><span class="line">  model:</span><br><span class="line">	use: live2d-widget-model-shizuku</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure>
+<p>  安装模型，在命令行运行命令：npm install –save live2d-widget-model-shizuku</p>
+<pre><code>可选模型：
+
+live2d-widget-model-chitose
+
+live2d-widget-model-epsilon2_1
+
+live2d-widget-model-gf
+
+live2d-widget-model-haru/01 (use npm install --save live2d-widget-model-haru)
+
+live2d-widget-model-haru/02 (use npm install --save live2d-widget-model-haru)
+
+live2d-widget-model-haruto
+
+live2d-widget-model-hibiki
+
+live2d-widget-model-hijiki
+
+live2d-widget-model-izumi
+
+live2d-widget-model-koharu
+
+live2d-widget-model-miku
+
+live2d-widget-model-ni-j
+
+live2d-widget-model-nico
+
+live2d-widget-model-nietzsche
+
+live2d-widget-model-nipsilon
+
+live2d-widget-model-nito
+
+live2d-widget-model-shizuku
+
+live2d-widget-model-tororo
+
+live2d-widget-model-tsumiki
+
+live2d-widget-model-unitychan
+
+live2d-widget-model-wanko
+
+live2d-widget-model-z16
+</code></pre>
+<h4 id="代码复制"><a href="#代码复制" class="headerlink" title="代码复制"></a>代码复制</h4><pre><code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">	border_radius: 8   # 按钮圆滑度</span><br><span class="line">	copy_button:  # 设置是否开启代码块复制按钮</span><br><span class="line">		enable: true</span><br><span class="line">		show_result: true  # 是否显示复制成功信息</span><br></pre></td></tr></table></figure>
+</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>  本文我们从零开始搭建个人本地hexo博客，并使用next主题。后续我们尝试将hexo博客推送至github、gitee等站点。生成我们的博客站。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/100138838/">Hexo-Next 主题博客个性化配置超详细，超全面</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/05/11/hexo%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0github/" rel="next" title="hexo（二）:将博客推送至github">
+                  hexo（二）:将博客推送至github <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eden 懒散老马</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+--!>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
