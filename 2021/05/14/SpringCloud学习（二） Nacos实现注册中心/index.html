@@ -32,9 +32,10 @@
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514110529653.png">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112333044.png">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112527620.png">
+<meta property="og:image" content="c:%5CUsers%5Cci22578%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210514154208991.png">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514145800211.png">
 <meta property="article:published_time" content="2021-05-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-14T07:01:41.148Z">
+<meta property="article:modified_time" content="2021-05-14T07:49:12.947Z">
 <meta property="article:author" content="Eden 懒散老马">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary">
@@ -170,7 +171,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -247,7 +248,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-05-14 00:00:00 / 修改时间：15:01:41" itemprop="dateCreated datePublished" datetime="2021-05-14T00:00:00+08:00">2021-05-14</time>
+      <time title="创建时间：2021-05-14 00:00:00 / 修改时间：15:49:12" itemprop="dateCreated datePublished" datetime="2021-05-14T00:00:00+08:00">2021-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,14 +268,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -310,10 +311,17 @@
 <h3 id="SpringCloud整合Nacos"><a href="#SpringCloud整合Nacos" class="headerlink" title="SpringCloud整合Nacos"></a>SpringCloud整合Nacos</h3><h4 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h4><p>Nacos Server：2.0.1</p>
 <p>SpringBoot：   2.4.5</p>
 <p>SpringCloud： 2020.0.2</p>
-<p>SpringCloud Alibaba：2.2.1.RELEASE</p>
+<p>SpringCloud Alibaba：2021.1</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">版本依赖关系</a> </p>
+<p><img src="C:%5CUsers%5Cci22578%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210514154208991.png" alt="image-20210514154208991"></p>
 <h4 id="服务注册到Nacos"><a href="#服务注册到Nacos" class="headerlink" title="服务注册到Nacos"></a>服务注册到Nacos</h4><p>新建一个module，命名为ruipin-auth</p>
 <p><strong>POM依赖</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">     	<span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置文件</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br></pre></td></tr></table></figure>
+
+
 
 <p><strong>启动入口开启服务发现</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(AuthApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -337,8 +345,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/05/12/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%20%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/" rel="prev" title="SpringCloud学习 | 第一篇 构建项目">
-                  <i class="fa fa-chevron-left"></i> SpringCloud学习 | 第一篇 构建项目
+                <a href="/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89%20Gateway%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%E9%85%8D%E7%BD%AE/" rel="prev" title="SpringCloud学习 | 第三篇 SpringCloud整合Gateway实现API网关">
+                  <i class="fa fa-chevron-left"></i> SpringCloud学习 | 第三篇 SpringCloud整合Gateway实现API网关
                 </a>
             </div>
             <div class="post-nav-item">
