@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git常用命令</title>
-    <url>/2021/05/24/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IDEA常用小技巧</title>
     <url>/2021/05/11/IDEA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
@@ -682,6 +671,17 @@ live2d-widget-model-z16
       </categories>
       <tags>
         <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git命令整理</title>
+    <url>/2021/05/24/Git%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
       </tags>
   </entry>
 </search>
