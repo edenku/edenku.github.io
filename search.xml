@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git命令整理</title>
+    <url>/2021/05/24/Git%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><h4 id="本地项目推送远程"><a href="#本地项目推送远程" class="headerlink" title="本地项目推送远程"></a>本地项目推送远程</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. git init 初始化本地项目</span><br><span class="line">PS D:\code\demo&gt; git init</span><br><span class="line">PS D:\code\demo&gt; git add .</span><br><span class="line">PS D:\code\demo&gt; git commit -m &#x27;init&#x27;</span><br><span class="line">2. 远程gitee/github创建空分支</span><br><span class="line">3. 本地关联远程分支</span><br><span class="line">PS D:\code\demo&gt; git remote add origin http://xx.xx.xx.xx:port/demo/demo.git</span><br><span class="line">4. 推送远程</span><br><span class="line">PS D:\code\demo&gt; git push -u origin master</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>IDEA常用小技巧</title>
     <url>/2021/05/11/IDEA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+    <content><![CDATA[<h3 id="如何添加RunDashBoard"><a href="#如何添加RunDashBoard" class="headerlink" title="如何添加RunDashBoard"></a>如何添加RunDashBoard</h3><p>  view &gt; Tool Windows &gt; Run Dashboard 打开，如果没有找到，则需要在workspace.xml中添加如下代码。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;component name=&quot;RunDashboard&quot;&gt;</span><br><span class="line">  &lt;option name=&quot;configurationTypes&quot;&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">  &lt;option name=&quot;ruleStates&quot;&gt;</span><br><span class="line">    &lt;list&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">    &lt;/list&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">&lt;/component&gt;</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装教程之JDK的安装</title>
+    <url>/2021/05/25/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJDK%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>[<a href="https://repo.huaweicloud.com/java/jdk/">华为JDK镜像地址</a>]</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@ecs-a7d9 home]# wget https://repo.huaweicloud.com/java/jdk/8u192-b12/jdk-8u192-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210525151931568.png" alt="image-20210525151931568"></p>
+<span id="more"></span>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装包移动至/usr/local 目录。</p>
+<p>解压并创建软连接。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@ecs-a7d9 local]# mv jdk-8u192-linux-x64.tar.gz /usr/local/</span><br><span class="line">[root@ecs-a7d9 local]# cd /usr/local/</span><br><span class="line">[root@ecs-a7d9 local]# tar zxvf jdk-8u192-linux-x64.tar.gz </span><br><span class="line">[root@ecs-a7d9 local]# ln -s /usr/local/jdk1.8.0_192/ /usr/local/jdk8</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p>修改 /etc目录下的profile文件，在末尾追加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk8</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib/dt.JAVA_HOME/lib/tools.jar:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210525152756788.png" alt="image-20210525152756788"></p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@ecs-a7d9 local]# java -version</span><br><span class="line">-bash: java: command not found</span><br><span class="line">## 使环境变量立即生效</span><br><span class="line">[root@ecs-a7d9 local]# source /etc/profile</span><br><span class="line">[root@ecs-a7d9 local]# java -version</span><br><span class="line">java version &quot;1.8.0_192&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_192-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.192-b12, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210525152910866.png" alt="image-20210525152910866"></p>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -47,6 +91,60 @@
 <p>到此，一个父工程就创建完毕了。</p>
 <p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210512141721341.png" alt="image-20210512141721341"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>接下来我们开始搭建Nacos服务。</p>
+]]></content>
+      <categories>
+        <category>SpringCloud从零开始构建微服务</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringCloud学习 | 第二篇 SpringCloud整合Nacos实现注册中心</title>
+    <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</url>
+    <content><![CDATA[<blockquote>
+<p>接上述文章，我们开始搭建Nacos服务。</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>为什么要使用Nacos，不使用Eureka呢</strong></p>
+<ol>
+<li>Eureka只实现注册中心，nacos同时实现注册中心与配置中心。</li>
+<li>Eureka2.0 闭源, Nacos国产各种中文文档。</li>
+</ol>
+<h3 id="搭建Nacos服务"><a href="#搭建Nacos服务" class="headerlink" title="搭建Nacos服务"></a>搭建Nacos服务</h3><h4 id="下载Nacos-server"><a href="#下载Nacos-server" class="headerlink" title="下载Nacos-server"></a>下载Nacos-server</h4><p><a href="https://github.com/alibaba/nacos/releases">GitHub地址</a> 。目前nacos-server的最新版本为2.0.1，不同版本可能些许差异。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105212761.png" alt="image-20210514105212761"></p>
+<p>下载到本地目录并解压，我放在了我代码同级目录。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105651639.png" alt="image-20210514105651639"></p>
+<span id="more"></span>
+
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p>使用nacos\conf\nacos-mysql.sql脚本创建好数据库表和数据初始化。库名：nacos_config</p>
+<h4 id="配置数据库连接"><a href="#配置数据库连接" class="headerlink" title="配置数据库连接"></a>配置数据库连接</h4><p>编辑nacos\conf/application.properties，修改自己本地的数据库连接信息    </p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514110529653.png" alt="image-20210514110529653"></p>
+<h4 id="启动nacos-server服务"><a href="#启动nacos-server服务" class="headerlink" title="启动nacos-server服务"></a>启动nacos-server服务</h4><p>☆ 确保本机已配置JAVA环境变量，版本8+</p>
+<p>nacos\bin\下执行 startup.cmd -m standalone 启动。-m standalone代表单机模式。默认以集群模式启动。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112333044.png" alt="image-20210514112333044"></p>
+<h4 id="进入nacos管理控制台"><a href="#进入nacos管理控制台" class="headerlink" title="进入nacos管理控制台"></a>进入nacos管理控制台</h4><p>启动服务后，登录控制台看看吧。地址: <a href="http://localhost:8848/nacos">http://localhost:8848/nacos</a>. 账号/密码: nacos/nacos</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112527620.png" alt="image-20210514112527620"></p>
+<h3 id="SpringCloud整合Nacos"><a href="#SpringCloud整合Nacos" class="headerlink" title="SpringCloud整合Nacos"></a>SpringCloud整合Nacos</h3><h4 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h4><p>Nacos Server：2.0.1</p>
+<p>SpringBoot：   2.4.5</p>
+<p>SpringCloud： 2020.0.2</p>
+<p>SpringCloud Alibaba：2021.1</p>
+<p><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">版本依赖关系</a> </p>
+<p><img src="C:%5CUsers%5Cci22578%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210514154208991.png" alt="image-20210514154208991"></p>
+<h4 id="服务注册到Nacos"><a href="#服务注册到Nacos" class="headerlink" title="服务注册到Nacos"></a>服务注册到Nacos</h4><p>新建一个module，命名为ruipin-auth</p>
+<p><strong>POM依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">     	<span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>配置文件</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>启动入口开启服务发现</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(AuthApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>访问Nacos服务列表</strong>查看</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514145800211.png" alt="image-20210514145800211"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此SpringCloud整合Nacos注册中心就完成了，后面我们继续使用Nacos完成配置中心配置。</p>
 ]]></content>
       <categories>
         <category>SpringCloud从零开始构建微服务</category>
@@ -172,57 +270,33 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringCloud学习 | 第二篇 SpringCloud整合Nacos实现注册中心</title>
-    <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</url>
-    <content><![CDATA[<blockquote>
-<p>接上述文章，我们开始搭建Nacos服务。</p>
-</blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>为什么要使用Nacos，不使用Eureka呢</strong></p>
-<ol>
-<li>Eureka只实现注册中心，nacos同时实现注册中心与配置中心。</li>
-<li>Eureka2.0 闭源, Nacos国产各种中文文档。</li>
-</ol>
-<h3 id="搭建Nacos服务"><a href="#搭建Nacos服务" class="headerlink" title="搭建Nacos服务"></a>搭建Nacos服务</h3><h4 id="下载Nacos-server"><a href="#下载Nacos-server" class="headerlink" title="下载Nacos-server"></a>下载Nacos-server</h4><p><a href="https://github.com/alibaba/nacos/releases">GitHub地址</a> 。目前nacos-server的最新版本为2.0.1，不同版本可能些许差异。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105212761.png" alt="image-20210514105212761"></p>
-<p>下载到本地目录并解压，我放在了我代码同级目录。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105651639.png" alt="image-20210514105651639"></p>
+    <title>hexo（二）:将博客推送至github</title>
+    <url>/2021/05/11/hexo%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0github/</url>
+    <content><![CDATA[<h3 id="操作步骤。"><a href="#操作步骤。" class="headerlink" title="操作步骤。"></a>操作步骤。</h3><p> 登录github，并创建public仓库。</p>
+<p> 仓库名命名格式：如果帐号名为<code>jack</code>，则repository为<code>jack.github.io</code></p>
+<h3 id="安装deploy扩展"><a href="#安装deploy扩展" class="headerlink" title="安装deploy扩展"></a>安装deploy扩展</h3><p>在跟目录(2021-blog)内，执行<code>npm install hexo-deployer-git --save</code> 安装部署的扩展。</p>
+<h3 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
 
-<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p>使用nacos\conf\nacos-mysql.sql脚本创建好数据库表和数据初始化。库名：nacos_config</p>
-<h4 id="配置数据库连接"><a href="#配置数据库连接" class="headerlink" title="配置数据库连接"></a>配置数据库连接</h4><p>编辑nacos\conf/application.properties，修改自己本地的数据库连接信息    </p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514110529653.png" alt="image-20210514110529653"></p>
-<h4 id="启动nacos-server服务"><a href="#启动nacos-server服务" class="headerlink" title="启动nacos-server服务"></a>启动nacos-server服务</h4><p>☆ 确保本机已配置JAVA环境变量，版本8+</p>
-<p>nacos\bin\下执行 startup.cmd -m standalone 启动。-m standalone代表单机模式。默认以集群模式启动。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112333044.png" alt="image-20210514112333044"></p>
-<h4 id="进入nacos管理控制台"><a href="#进入nacos管理控制台" class="headerlink" title="进入nacos管理控制台"></a>进入nacos管理控制台</h4><p>启动服务后，登录控制台看看吧。地址: <a href="http://localhost:8848/nacos">http://localhost:8848/nacos</a>. 账号/密码: nacos/nacos</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112527620.png" alt="image-20210514112527620"></p>
-<h3 id="SpringCloud整合Nacos"><a href="#SpringCloud整合Nacos" class="headerlink" title="SpringCloud整合Nacos"></a>SpringCloud整合Nacos</h3><h4 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h4><p>Nacos Server：2.0.1</p>
-<p>SpringBoot：   2.4.5</p>
-<p>SpringCloud： 2020.0.2</p>
-<p>SpringCloud Alibaba：2021.1</p>
-<p><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">版本依赖关系</a> </p>
-<p><img src="C:%5CUsers%5Cci22578%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210514154208991.png" alt="image-20210514154208991"></p>
-<h4 id="服务注册到Nacos"><a href="#服务注册到Nacos" class="headerlink" title="服务注册到Nacos"></a>服务注册到Nacos</h4><p>新建一个module，命名为ruipin-auth</p>
-<p><strong>POM依赖</strong></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">     	<span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>配置文件</strong></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>启动入口开启服务发现</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(AuthApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>访问Nacos服务列表</strong>查看</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514145800211.png" alt="image-20210514145800211"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此SpringCloud整合Nacos注册中心就完成了，后面我们继续使用Nacos完成配置中心配置。</p>
+<h3 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h3><p> 根目录下使用 hexo d -g 即可将项目推送至github远程仓库。</p>
+<p> 快使用jack.github.io看看能不能访问了？</p>
+<h3 id="github添加免密"><a href="#github添加免密" class="headerlink" title="github添加免密"></a>github添加免密</h3><p> 本地生成ssh秘钥文件</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可</span><br><span class="line">ssh-keygen -t rsa -C “m***n_11@126.com” </span><br></pre></td></tr></table></figure>
+<p> github网站，头像-&gt; settings-&gt; SSH and GPG keys -&gt; New SSh Key </p>
+<p> 将电脑上C:\Users.ssh 中的id_rsa.pub中的内容 复制到key中，title自定义即可。</p>
+<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#x6f;&#x6d;</a> 测试下链接，当看到</p>
+<p> <code>Hi jack! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p> 说明配置成功，再推送就可以免密推送了。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;</a>:jack/jack.github.io.git这种。</p>
+<pre><code>修改后推送成功。
+</code></pre>
 ]]></content>
       <categories>
-        <category>SpringCloud从零开始构建微服务</category>
+        <category>使用hexo搭建博客</category>
       </categories>
       <tags>
-        <tag>SpringCloud</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -450,36 +524,6 @@ live2d-widget-model-z16
       </tags>
   </entry>
   <entry>
-    <title>hexo（二）:将博客推送至github</title>
-    <url>/2021/05/11/hexo%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0github/</url>
-    <content><![CDATA[<h3 id="操作步骤。"><a href="#操作步骤。" class="headerlink" title="操作步骤。"></a>操作步骤。</h3><p> 登录github，并创建public仓库。</p>
-<p> 仓库名命名格式：如果帐号名为<code>jack</code>，则repository为<code>jack.github.io</code></p>
-<h3 id="安装deploy扩展"><a href="#安装deploy扩展" class="headerlink" title="安装deploy扩展"></a>安装deploy扩展</h3><p>在跟目录(2021-blog)内，执行<code>npm install hexo-deployer-git --save</code> 安装部署的扩展。</p>
-<h3 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h3 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h3><p> 根目录下使用 hexo d -g 即可将项目推送至github远程仓库。</p>
-<p> 快使用jack.github.io看看能不能访问了？</p>
-<h3 id="github添加免密"><a href="#github添加免密" class="headerlink" title="github添加免密"></a>github添加免密</h3><p> 本地生成ssh秘钥文件</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可</span><br><span class="line">ssh-keygen -t rsa -C “m***n_11@126.com” </span><br></pre></td></tr></table></figure>
-<p> github网站，头像-&gt; settings-&gt; SSH and GPG keys -&gt; New SSh Key </p>
-<p> 将电脑上C:\Users.ssh 中的id_rsa.pub中的内容 复制到key中，title自定义即可。</p>
-<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;</a> 测试下链接，当看到</p>
-<p> <code>Hi jack! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
-<p> 说明配置成功，再推送就可以免密推送了。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:jack/jack.github.io.git这种。</p>
-<pre><code>修改后推送成功。
-</code></pre>
-]]></content>
-      <categories>
-        <category>使用hexo搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>优秀的博客地址整理</title>
     <url>/2021/05/24/%E4%BC%98%E7%A7%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</url>
     <content><![CDATA[<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>[<a href="https://pdai.tech/">Java 全栈知识体系</a>]</p>
@@ -671,17 +715,6 @@ live2d-widget-model-z16
       </categories>
       <tags>
         <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git命令整理</title>
-    <url>/2021/05/24/Git%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
 </search>
