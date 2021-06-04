@@ -159,7 +159,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,7 +172,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -201,6 +201,222 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/" class="post-title-link" itemprop="url">SpringCloud学习 | 第三篇 SpringCloud整合Nacos实现配置中心</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-14 00:00:00 / 修改时间：16:30:34" itemprop="dateCreated datePublished" datetime="2021-05-14T00:00:00+08:00">2021-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringCloud%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">SpringCloud从零开始构建微服务</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>接上述文章，我们在auth模块中使用Nacos实现配置中心。</p>
+</blockquote>
+<h3 id="一段废话"><a href="#一段废话" class="headerlink" title="一段废话"></a>一段废话</h3><p>相比Eureka要专门搭建一个config服务实现配置中心，Nacos集成了配置中心。个人觉得还是值得推荐。</p>
+<h3 id="SpringCloud实现配置中心"><a href="#SpringCloud实现配置中心" class="headerlink" title="SpringCloud实现配置中心"></a>SpringCloud实现配置中心</h3><h4 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h4><p>相比上一文，我们追加了一个spring-cloud-starter-alibaba-nacos-config依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- nacos-config 配置中心依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" class="post-title-link" itemprop="url">SpringCloud学习 | 第二篇 SpringCloud整合Nacos实现注册中心</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-14 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-14T00:00:00+08:00">2021-05-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-27 14:21:38" itemprop="dateModified" datetime="2021-05-27T14:21:38+08:00">2021-05-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringCloud%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">SpringCloud从零开始构建微服务</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>接上述文章，我们开始搭建Nacos服务。</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>为什么要使用Nacos，不使用Eureka呢</strong></p>
+<ol>
+<li>Eureka只实现注册中心，nacos同时实现注册中心与配置中心。</li>
+<li>Eureka2.0 闭源, Nacos国产各种中文文档。</li>
+</ol>
+<h3 id="搭建Nacos服务"><a href="#搭建Nacos服务" class="headerlink" title="搭建Nacos服务"></a>搭建Nacos服务</h3><h4 id="下载Nacos-server"><a href="#下载Nacos-server" class="headerlink" title="下载Nacos-server"></a>下载Nacos-server</h4><p><a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">GitHub地址</a> 。目前nacos-server的最新版本为2.0.1，不同版本可能些许差异。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105212761.png" alt="image-20210514105212761"></p>
+<p>下载到本地目录并解压，我放在了我代码同级目录。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105651639.png" alt="image-20210514105651639"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -463,7 +679,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 15:03:33" itemprop="dateModified" datetime="2021-05-25T15:03:33+08:00">2021-05-25</time>
+        <time title="修改时间：2021-06-04 09:44:29" itemprop="dateModified" datetime="2021-06-04T09:44:29+08:00">2021-06-04</time>
       </span>
 
   
@@ -474,7 +690,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>657</span>
+      <span>758</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -494,6 +710,12 @@
     <div class="post-body" itemprop="articleBody">
           <h3 id="如何添加RunDashBoard"><a href="#如何添加RunDashBoard" class="headerlink" title="如何添加RunDashBoard"></a>如何添加RunDashBoard</h3><p>  view &gt; Tool Windows &gt; Run Dashboard 打开，如果没有找到，则需要在workspace.xml中添加如下代码。</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;component name=&quot;RunDashboard&quot;&gt;</span><br><span class="line">  &lt;option name=&quot;configurationTypes&quot;&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">  &lt;option name=&quot;ruleStates&quot;&gt;</span><br><span class="line">    &lt;list&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">    &lt;/list&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">&lt;/component&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pom文件出现删除线"><a href="#Pom文件出现删除线" class="headerlink" title="Pom文件出现删除线"></a>Pom文件出现删除线</h3><p>正常的pom文件是不会有删除线的，我们的变成这样子了。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604094212517.png" alt="image-20210604094212517"></p>
+<p>怎么处理呢，file -&gt; setting -&gt; maven -&gt; ignored Files 将被忽略的pom文件取消选中。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604094413930.png" alt="image-20210604094413930"></p>
+
       
     </div>
 
@@ -664,7 +886,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>859</span>
+      <span>861</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
