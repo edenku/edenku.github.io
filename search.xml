@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>IDEA常用小技巧</title>
-    <url>/2021/05/11/IDEA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="如何添加RunDashBoard"><a href="#如何添加RunDashBoard" class="headerlink" title="如何添加RunDashBoard"></a>如何添加RunDashBoard</h3><p>  view &gt; Tool Windows &gt; Run Dashboard 打开，如果没有找到，则需要在workspace.xml中添加如下代码。</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;component name=&quot;RunDashboard&quot;&gt;</span><br><span class="line">  &lt;option name=&quot;configurationTypes&quot;&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">  &lt;option name=&quot;ruleStates&quot;&gt;</span><br><span class="line">    &lt;list&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">    &lt;/list&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">&lt;/component&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Pom文件出现删除线"><a href="#Pom文件出现删除线" class="headerlink" title="Pom文件出现删除线"></a>Pom文件出现删除线</h3><p>正常的pom文件是不会有删除线的，我们的变成这样子了。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604094212517.png" alt="image-20210604094212517"></p>
-<p>怎么处理呢，file -&gt; setting -&gt; maven -&gt; ignored Files 将被忽略的pom文件取消选中。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604094413930.png" alt="image-20210604094413930"></p>
-]]></content>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux安装教程之JDK的安装</title>
     <url>/2021/05/25/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJDK%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>[<a href="https://repo.huaweicloud.com/java/jdk/">华为JDK镜像地址</a>]</p>
@@ -44,44 +29,213 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux常用命令</title>
-    <url>/2021/05/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p><strong>查看防火墙状态</strong></p>
-<p>systemctl status firewalld.service</p>
-<p>firewall-cmd –state</p>
-<p><strong>关闭防火墙</strong></p>
-<p>systemctl stop firewalld.service</p>
-<p><strong>开启防火墙</strong></p>
-<p>systemctl start firewalld.service</p>
-<p><strong>禁用防火墙</strong></p>
-<p>systemctl disable firewalld.service</p>
-<span id="more"></span>
+    <title>Git命令整理</title>
+    <url>/2021/05/24/Git%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>
 
-<p><strong>设置开机自动启动</strong></p>
-<p>systemctl enable firewalld.service</p>
-<p> <strong>关闭开机启动</strong></p>
-<p>systemctl disable firewalld.service</p>
-<p><strong>查看防火墙所有开放的端口</strong></p>
-<p>firewall-cmd –zone=public –list-ports</p>
-<h3 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h3><p>cat /etc/redhat-release</p>
-<h3 id="常见插件安装"><a href="#常见插件安装" class="headerlink" title="常见插件安装"></a>常见插件安装</h3><h4 id="sz-和-rz安装"><a href="#sz-和-rz安装" class="headerlink" title="sz 和 rz安装"></a>sz 和 rz安装</h4><p>yum install lrzsz</p>
-<h3 id="删除乱码文件"><a href="#删除乱码文件" class="headerlink" title="删除乱码文件"></a>删除乱码文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -i   # 显示文件的节点号</span><br><span class="line">find -inum 3031169 -delete</span><br></pre></td></tr></table></figure>
+<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><h4 id="本地项目推送远程"><a href="#本地项目推送远程" class="headerlink" title="本地项目推送远程"></a>本地项目推送远程</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. git init 初始化本地项目</span><br><span class="line">PS D:\code\demo&gt; git init</span><br><span class="line">PS D:\code\demo&gt; git add .</span><br><span class="line">PS D:\code\demo&gt; git commit -m &#x27;init&#x27;</span><br><span class="line">2. 远程gitee/github创建空分支</span><br><span class="line">3. 本地关联远程分支</span><br><span class="line">PS D:\code\demo&gt; git remote add origin http://xx.xx.xx.xx:port/demo/demo.git</span><br><span class="line">4. 推送远程</span><br><span class="line">PS D:\code\demo&gt; git push -u origin master</span><br></pre></td></tr></table></figure>
 
-<p>再看就已经成功删除了。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210530221326703.png" alt="image-20210530221326703"></p>
+<h3 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h3><h4 id="gitlab回滚代码"><a href="#gitlab回滚代码" class="headerlink" title="gitlab回滚代码"></a>gitlab回滚代码</h4><p>gitlab主master分支默认受保护，不允许任何人进行代码回滚，所以我们回滚需要先删除受保护标签。</p>
+<p><img src="C:%5CUsers%5Cci22578%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210629104157190.png" alt="image-20210629104157190"></p>
+<p>project-setting 去设置</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210629104419193.png" alt="image-20210629104419193"></p>
+<p>点击不再保护按钮。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210629104530667.png" alt="image-20210629104530667"></p>
+<p>接下来，我们就可以回滚到我们指定的代码提交记录了。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">git reset -<span class="literal">-hard</span> &lt;commit<span class="literal">-id</span>&gt;</span><br><span class="line">git push <span class="operator">-f</span>   <span class="comment">## 强制推送</span></span><br><span class="line"><span class="comment">## 输入用户密码即可</span></span><br></pre></td></tr></table></figure>
+
+<p>操作完以后最好还是把这个保护再添加回来。</p>
+<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 打标签</span><br><span class="line">git tag -a V1.0 -m &#x27;V1.0的描述&#x27;</span><br><span class="line"># 删除标签</span><br><span class="line">git tag -d V1.0</span><br><span class="line"># 推送远程</span><br><span class="line">git push origin V1.0</span><br></pre></td></tr></table></figure>
+
 ]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
-    <title>Maven常用命令</title>
-    <url>/2021/06/03/Maven%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="如何添加本地jar包到maven仓库"><a href="#如何添加本地jar包到maven仓库" class="headerlink" title="如何添加本地jar包到maven仓库"></a>如何添加本地jar包到maven仓库</h3><p>安装指定文件到本地仓库命令：mvn install:install-file</p>
-<p><strong>cmd打开命令行，不要用powerShell</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-DgroupId=&lt;groupId&gt;       : 设置项目代码的包名(一般用组织名)</span><br><span class="line">-DartifactId=&lt;artifactId&gt; : 设置项目名或模块名 </span><br><span class="line">-Dversion=1.0.0           : 版本号</span><br><span class="line">-Dpackaging=jar           : 什么类型的文件(jar包)</span><br><span class="line">-Dfile=&lt;myfile.jar&gt;       : 指定jar文件路径与文件名(同目录只需文件名)</span><br><span class="line">安装命令实例：</span><br><span class="line">mvn install:install-file -DgroupId=io.netty -DartifactId=netty-all -Dversion=4.1.58.Final -Dpackaging=jar -Dfile=D:\netty-all-4.1.58.Final.jar</span><br></pre></td></tr></table></figure>
+    <title>IDEA常用小技巧</title>
+    <url>/2021/05/11/IDEA%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="如何添加RunDashBoard"><a href="#如何添加RunDashBoard" class="headerlink" title="如何添加RunDashBoard"></a>如何添加RunDashBoard</h3><p>  view &gt; Tool Windows &gt; Run Dashboard 打开，如果没有找到，则需要在workspace.xml中添加如下代码。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;component name=&quot;RunDashboard&quot;&gt;</span><br><span class="line">  &lt;option name=&quot;configurationTypes&quot;&gt;</span><br><span class="line">    &lt;set&gt;</span><br><span class="line">      &lt;option value=&quot;SpringBootApplicationConfigurationType&quot;/&gt;</span><br><span class="line">    &lt;/set&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">  &lt;option name=&quot;ruleStates&quot;&gt;</span><br><span class="line">    &lt;list&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;ConfigurationTypeDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">      &lt;RuleState&gt;</span><br><span class="line">        &lt;option name=&quot;name&quot; value=&quot;StatusDashboardGroupingRule&quot;/&gt;</span><br><span class="line">      &lt;/RuleState&gt;</span><br><span class="line">    &lt;/list&gt;</span><br><span class="line">  &lt;/option&gt;</span><br><span class="line">&lt;/component&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210603164713209.png" alt="image-20210603164713209"></p>
+<h3 id="Pom文件出现删除线"><a href="#Pom文件出现删除线" class="headerlink" title="Pom文件出现删除线"></a>Pom文件出现删除线</h3><p>正常的pom文件是不会有删除线的，我们的变成这样子了。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604094212517.png" alt="image-20210604094212517"></p>
+<p>怎么处理呢，file -&gt; setting -&gt; maven -&gt; ignored Files 将被忽略的pom文件取消选中。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604094413930.png" alt="image-20210604094413930"></p>
 ]]></content>
       <tags>
-        <tag>Maven</tag>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装教程之Redis的安装</title>
+    <url>/2021/06/21/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BRedis%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>下载地址：<a href="https://redis.io/download">https://redis.io/download</a></p>
+<p>当前最新版本6.2.4，下载并按照。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://download.redis.io/releases/redis-6.2.4.tar.gz</span><br><span class="line">tar xzf redis-6.2.4.tar.gz</span><br><span class="line">cd redis-6.2.4</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>编译后，src目录执行即可。</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./bin/redis-server</span><br></pre></td></tr></table></figure>
+
+<p>如果需要后台启动，修改redis.conf</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210621155558248.png" alt="image-20210621155558248"></p>
+<p>重新./redis-server redis.conf启动，即可。</p>
+<p>ps -ef|grep redis可以查看是否启动成功。</p>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux安装教程之Jekins的安装</title>
+    <url>/2021/07/02/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 当前操作系统版本</span><br><span class="line">[root@localhost ~]# cat /etc/redhat-release</span><br><span class="line">CentOS Linux release 7.4.1708 (Core) </span><br><span class="line"># 查看JDK版本</span><br><span class="line">[root@localhost ~]# java -version</span><br><span class="line">java version &quot;1.8.0_181&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_181-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)</span><br><span class="line"># 查看JDK安装目录</span><br><span class="line">[root@localhost ~]# echo $JAVA_HOME$</span><br><span class="line">/usr/local/jdk1.8.0_181$</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果没有安装JDK 请先安装JDK</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="安装-Java"><a href="#安装-Java" class="headerlink" title="安装 Java"></a>安装 Java</h3><blockquote>
+<p>如已安装，请跳过此节</p>
+</blockquote>
+<ul>
+<li><p>下载安装包，我选择的JDK8<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">官网地址</a></p>
+</li>
+<li><p>上传到服务器<code>/usr/local</code>目录。</p>
+</li>
+<li><p>解压并创建软连接。</p>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost local]# tar zxvf jdk-8u181-linux-x64.tar.gz </span><br><span class="line">[root@localhost local]# ln -s /usr/local/jdk1.8.0_181/ /usr/local/jdk8</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置环境变量 <code>vi /etc/profile</code></li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/jdk8</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib/dt.JAVA_HOME/lib/tools.jar:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>source /etc/profile</code> 使环境变量立即生效</p>
+</li>
+<li><p><code>java -version</code> 验证</p>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost local]# source /etc/profile</span><br><span class="line">[root@localhost local]# java -version</span><br><span class="line">java version &quot;1.8.0_181&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_181-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><ul>
+<li>安装编译源码的工具</li>
+</ul>
+<p>  <code>yum -y groupinstall &quot;Development Tools&quot;</code></p>
+<ul>
+<li>下载依赖包</li>
+</ul>
+<p>  <code>yum -y install zlib-devel perl-ExtUtils-MakeMaker asciidoc xmlto openssl-devel</code></p>
+<ul>
+<li>下载git 源码 并解压</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# wget https://github.com/git/git/archive/v2.19.0.tar.gz</span><br><span class="line">[root@localhost ~]# mv v2.19.0.tar.gz /usr/local/</span><br><span class="line">[root@localhost ~]# tar -zxvf v2.19.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>  <code>wget https://github.com/git/git/archive/v2.19.0.tar.gz</code></p>
+<p>  <strong>登录<a href="https://github.com/git/git/releases%E6%9F%A5%E7%9C%8Bgit%E7%9A%84%E6%9C%80%E6%96%B0%E7%89%88%E3%80%82%E4%B8%8D%E8%A6%81%E4%B8%8B%E8%BD%BD%E5%B8%A6%E6%9C%89-rc%E7%9A%84%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%AE%83%E4%BB%A3%E8%A1%A8%E4%BA%86%E4%B8%80%E4%B8%AA%E5%80%99%E9%80%89%E5%8F%91%E5%B8%83%E7%89%88%E6%9C%AC">https://github.com/git/git/releases查看git的最新版。不要下载带有-rc的，因为它代表了一个候选发布版本</a></strong></p>
+<ul>
+<li>编译</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost git-2.19.0]# cd git-2.19.0/</span><br><span class="line">[root@localhost git-2.19.0]# make configure</span><br><span class="line">[root@localhost git-2.19.0]# ./configure --prefix=/usr/local/git</span><br><span class="line">[root@localhost git-2.19.0]# make &amp;&amp; make install</span><br><span class="line">[root@localhost git-2.19.0]# export PATH=&quot;/usr/local/git/bin:$PATH&quot; </span><br><span class="line">[root@localhost git-2.19.0]# source /etc/profile</span><br><span class="line">[root@localhost git-2.19.0]# git --version </span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-maven"><a href="#安装-maven" class="headerlink" title="安装 maven"></a>安装 maven</h3><ul>
+<li><p>下载maven<a href="http://maven.apache.org/download.cgi">地址</a></p>
+</li>
+<li><p>解压至 <code>/usr/local</code></p>
+</li>
+<li><p>设置环境变量并使其立即生效</p>
+</li>
+<li><p><code>mvn -v</code> 验证</p>
+</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># MAVEN</span><br><span class="line">export MAVEN_HOME=/usr/local/apache-maven-3.5.4</span><br><span class="line">export MAVEN_HOME</span><br><span class="line">export PATH=$PATH:$MAVEN_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Tomcat"><a href="#安装-Tomcat" class="headerlink" title="安装 Tomcat"></a>安装 Tomcat</h3><ul>
+<li>下载安装包，选择9.0.12版本</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# wget http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12.tar.gz</span><br><span class="line">--2018-09-26 10:38:25--  http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12.tar.gz</span><br><span class="line">Resolving mirrors.hust.edu.cn (mirrors.hust.edu.cn)... 202.114.18.160</span><br><span class="line">Connecting to mirrors.hust.edu.cn (mirrors.hust.edu.cn)|202.114.18.160|:80... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 9912675 (9.5M) [application/octet-stream]</span><br><span class="line">Saving to: ‘apache-tomcat-9.0.12.tar.gz’</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解压并移至<code>/usr/local</code>目录。</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# tar -xzvf apache-tomcat-9.0.12.tar.gz </span><br><span class="line">[root@localhost ~]# mv apache-tomcat-9.0.12 /usr/local/apache-tomcat-9.0.12</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建软连接 </li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 软连接类似Windows的快捷方式</span><br><span class="line">[root@localhost ~]# ln -s /usr/local/apache-tomcat-9.0.12 /usr/local/tomcat</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改默认Tomcat端口</li>
+</ul>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# vi /usr/local/tomcat/conf/server.xml</span><br><span class="line">...</span><br><span class="line">&lt;Connector port=&quot;10000&quot; protocol=&quot;HTTP/1.1&quot;</span><br><span class="line">   connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; /&gt;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>  默认端口8080，修改为10000</p>
+<ul>
+<li>启动</li>
+</ul>
+<p>  <code>/usr/local/tomcat/bin/startup.sh</code> </p>
+<p>  使用 <a href="http://IP:PORT">http://IP:PORT</a> 访问。    </p>
+<blockquote>
+<p>如果启动正常，但无法正常访问。(ping可以，端口telnet不通)<br>需要关闭防火墙或开放指定端口</p>
+</blockquote>
+<p>  <strong>关闭防火墙 (CentOS 7)</strong></p>
+<ul>
+<li>启动： systemctl start firewalld</li>
+<li>重启： systemctl restart firewalld.service</li>
+<li>关闭： systemctl stop firewalld</li>
+<li>查看状态： systemctl status firewalld </li>
+<li>开机禁用  ： systemctl disable firewalld</li>
+<li>开机启用  ： systemctl enable firewalld</li>
+</ul>
+<p>  <strong>开放指定端口</strong></p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## --zone=public：表示作用域为公共的；</span><br><span class="line">## --add-port=8080/tcp：添加tcp协议的端口8080；</span><br><span class="line">## --permanent：永久生效，如果没有此参数，则只能维持当前服务生命周期内，重新启动后失效；</span><br><span class="line">[root@localhost local]# firewall-cmd --zone=public --add-port=10380/tcp --permanent;</span><br><span class="line">success</span><br><span class="line">## 重启防火墙</span><br><span class="line">[root@localhost local]# systemctl restart firewalld.service</span><br><span class="line">[root@localhost local]# </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Jenkins"><a href="#安装-Jenkins" class="headerlink" title="安装 Jenkins"></a>安装 Jenkins</h3><ul>
+<li><p>下载war包<a href="http://mirrors.jenkins.io/war-stable/latest/jenkins.war">地址</a></p>
+</li>
+<li><p>上传war包到<code>/usr/local/tomcat/webapps/</code>目录。</p>
+</li>
+<li><p>重启tomcat.</p>
+</li>
+<li><p><code>http://IP:PORT/jenkins/</code> 访问jenkins。</p>
+</li>
+<li><p><code>/root/.jenkins/secrets/initialAdminPassword</code> 复制密码 解锁Jenkins。</p>
+</li>
+<li><p>安装社区推荐的插件。</p>
+</li>
+</ul>
+<p>  <strong>设置管理员密码</strong></p>
+<p>  admin/admin</p>
+<blockquote>
+<p>设置完密码以后，使用设置的管理员密码登录，访问jenkins，白页面。猜测可能与端口设置有关，<br>修改端口为10380后，重启tomcat，可以正常访问。</p>
+</blockquote>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>  到此，我们的Jenkins环境就安装完成，后面我们将安装部分插件并使用git+maven构建任务。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.cnblogs.com/liugh/p/6623530.html">Linux下安装Java（JDK8）</a></li>
+<li><a href="https://blog.csdn.net/Juladoe/article/details/76170193">CentOS7安装最新版git教程</a></li>
+<li><a href="https://www.cnblogs.com/moxiaoan/p/5683743.html">CentOS7使用firewalld打开关闭防火墙与端口</a>  </li>
+<li><a href="https://www.cnblogs.com/yuhebin/p/8594774.html">Linux安装Tomcat</a>  </li>
+<li><a href="https://blog.csdn.net/andyzhaojianhui/article/details/73472500">linux下安装及配置jenkins</a>  </li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -117,58 +271,11 @@
 <p>重启Jmeter再执行乱码问题已经处理掉了。</p>
 <p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210528165611784.png" alt="image-20210528165611784"></p>
 ]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
       <tags>
         <tag>Jmeter</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringCloud学习 | 第三篇 SpringCloud整合Nacos实现配置中心</title>
-    <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</url>
-    <content><![CDATA[<blockquote>
-<p>接上述文章，我们在auth模块中使用Nacos实现配置中心。</p>
-</blockquote>
-<h3 id="一段废话"><a href="#一段废话" class="headerlink" title="一段废话"></a>一段废话</h3><p>相比Eureka要专门搭建一个config服务实现配置中心，Nacos集成了配置中心。个人觉得还是值得推荐。</p>
-<h3 id="SpringCloud实现配置中心"><a href="#SpringCloud实现配置中心" class="headerlink" title="SpringCloud实现配置中心"></a>SpringCloud实现配置中心</h3><h4 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h4><p>相比上一文，我们追加了一个spring-cloud-starter-alibaba-nacos-config依赖。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- nacos-config 配置中心依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h4 id="配置文件添加nacos配置"><a href="#配置文件添加nacos配置" class="headerlink" title="配置文件添加nacos配置"></a>配置文件添加nacos配置</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span>      <span class="comment"># 默认值 properties</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">DEFAULT_GROUP</span>      <span class="comment"># 默认值 DEFAULT_GROUP</span></span><br><span class="line">        <span class="attr">prefix:</span> <span class="string">$&#123;spring.application.name&#125;</span></span><br><span class="line"><span class="attr">example:</span></span><br><span class="line">  <span class="attr">hello-word:</span> <span class="string">Hello</span> <span class="string">Ruipin</span>		 <span class="comment"># 配置测试信息</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="添加测试接口读取配置"><a href="#添加测试接口读取配置" class="headerlink" title="添加测试接口读取配置"></a>添加测试接口读取配置</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RefreshScope</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/sample&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;example.hello-word&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String word;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">getWord</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Result.success(<span class="keyword">this</span>.word);<span class="comment">//Result为自定义响应，可以直接返回this.word字符串</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>启动服务，第一次调用 <a href="http://localhost:8000/sample/hello">http://localhost:8000/sample/hello</a></p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514161730557.png" alt="image-20210514161730557"></p>
-<h4 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h4><p>打开Nacos界面，配置列表，添加配置：</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162229678.png" alt="image-20210514162229678"></p>
-<p>Data ID: 输入 ${prefix}-${spring.profiles.active}.${file-extension}，根据我上面的配置，我的配置截图</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162723996.png" alt="image-20210514162723996"></p>
-<p>点击发布，列表中出现一条配置。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162808803.png" alt="image-20210514162808803"></p>
-<h4 id="再次测试"><a href="#再次测试" class="headerlink" title="再次测试"></a>再次测试</h4><p>第二次调用 <a href="http://localhost:8000/sample/hello%EF%BC%8C%E6%88%90%E5%8A%9F%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0%E3%80%82">http://localhost:8000/sample/hello，成功实现配置信息的动态刷新。</a></p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162839536.png" alt="image-20210514162839536"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此，SpringCloud整合Nacos实现配置中心就完成了。相比Eureka确实方便了很多。</p>
-]]></content>
-      <categories>
-        <category>SpringCloud从零开始构建微服务</category>
-      </categories>
-      <tags>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git命令整理</title>
-    <url>/2021/05/24/Git%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><h4 id="本地项目推送远程"><a href="#本地项目推送远程" class="headerlink" title="本地项目推送远程"></a>本地项目推送远程</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">1. git init 初始化本地项目</span><br><span class="line">PS D:\code\demo&gt; git init</span><br><span class="line">PS D:\code\demo&gt; git add .</span><br><span class="line">PS D:\code\demo&gt; git commit -m &#x27;init&#x27;</span><br><span class="line">2. 远程gitee/github创建空分支</span><br><span class="line">3. 本地关联远程分支</span><br><span class="line">PS D:\code\demo&gt; git remote add origin http://xx.xx.xx.xx:port/demo/demo.git</span><br><span class="line">4. 推送远程</span><br><span class="line">PS D:\code\demo&gt; git push -u origin master</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -263,6 +370,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Maven常用命令</title>
+    <url>/2021/06/03/Maven%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="如何添加本地jar包到maven仓库"><a href="#如何添加本地jar包到maven仓库" class="headerlink" title="如何添加本地jar包到maven仓库"></a>如何添加本地jar包到maven仓库</h3><p>安装指定文件到本地仓库命令：mvn install:install-file</p>
+<p><strong>cmd打开命令行，不要用powerShell</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-DgroupId=&lt;groupId&gt;       : 设置项目代码的包名(一般用组织名)</span><br><span class="line">-DartifactId=&lt;artifactId&gt; : 设置项目名或模块名 </span><br><span class="line">-Dversion=1.0.0           : 版本号</span><br><span class="line">-Dpackaging=jar           : 什么类型的文件(jar包)</span><br><span class="line">-Dfile=&lt;myfile.jar&gt;       : 指定jar文件路径与文件名(同目录只需文件名)</span><br><span class="line">安装命令实例：</span><br><span class="line">mvn install:install-file -DgroupId=io.netty -DartifactId=netty-all -Dversion=4.1.58.Final -Dpackaging=jar -Dfile=D:\netty-all-4.1.58.Final.jar</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210603164713209.png" alt="image-20210603164713209"></p>
+]]></content>
+      <tags>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2021/05/14/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p><strong>查看防火墙状态</strong></p>
+<p>systemctl status firewalld.service</p>
+<p>firewall-cmd –state</p>
+<p><strong>关闭防火墙</strong></p>
+<p>systemctl stop firewalld.service</p>
+<p><strong>开启防火墙</strong></p>
+<p>systemctl start firewalld.service</p>
+<p><strong>禁用防火墙</strong></p>
+<p>systemctl disable firewalld.service</p>
+<span id="more"></span>
+
+<p><strong>设置开机自动启动</strong></p>
+<p>systemctl enable firewalld.service</p>
+<p> <strong>关闭开机启动</strong></p>
+<p>systemctl disable firewalld.service</p>
+<p><strong>查看防火墙所有开放的端口</strong></p>
+<p>firewall-cmd –zone=public –list-ports</p>
+<h3 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h3><p>cat /etc/redhat-release</p>
+<h3 id="常见插件安装"><a href="#常见插件安装" class="headerlink" title="常见插件安装"></a>常见插件安装</h3><h4 id="sz-和-rz安装"><a href="#sz-和-rz安装" class="headerlink" title="sz 和 rz安装"></a>sz 和 rz安装</h4><p>yum install lrzsz</p>
+<h3 id="删除乱码文件"><a href="#删除乱码文件" class="headerlink" title="删除乱码文件"></a>删除乱码文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -i   # 显示文件的节点号</span><br><span class="line">find -inum 3031169 -delete</span><br></pre></td></tr></table></figure>
+
+<p>再看就已经成功删除了。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210530221326703.png" alt="image-20210530221326703"></p>
+<h3 id="查看服务器占用空间"><a href="#查看服务器占用空间" class="headerlink" title="查看服务器占用空间"></a>查看服务器占用空间</h3><p><strong>df</strong></p>
+<p>df可以查看根目录大小、使用比例及其挂入点。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210617094210820.png" alt="image-20210617094210820"></p>
+<p><strong>du</strong></p>
+<p>du可以查看文件及文件夹的大小。但目录层级过多的时候，列表数目过多并不利于查看。所以我们可以指定目录深度 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">du -h --max-depth=1 /usr/local</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210617095002419.png" alt="image-20210617095002419"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>SpringCloud学习 | 第一篇 构建项目</title>
     <url>/2021/05/12/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89%20%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<h2 id="SpringCloud-与-SpringBoot的版本"><a href="#SpringCloud-与-SpringBoot的版本" class="headerlink" title="SpringCloud 与 SpringBoot的版本"></a>SpringCloud 与 SpringBoot的版本</h2><p>因为SpringCloud与SpringBoot的版本需要对应，否则会出现异常。</p>
@@ -288,70 +446,128 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringCloud学习 | 第八篇 xxl-job构建定时调度</title>
-    <url>/2021/05/31/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AB%EF%BC%89%20xxl-job%E6%9E%84%E5%BB%BA%E5%AE%9A%E6%97%B6%E8%B0%83%E5%BA%A6/</url>
+    <title>SpringCloud学习 | 第二篇 SpringCloud整合Nacos实现注册中心</title>
+    <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</url>
     <content><![CDATA[<blockquote>
-<p>官网地址：[<a href="https://www.xuxueli.com/xxl-job/">https://www.xuxueli.com/xxl-job/</a>]</p>
-<p>XXL-JOB是一个分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。</p>
+<p>接上述文章，我们开始搭建Nacos服务。</p>
 </blockquote>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="%5Bhttps://www.xuxueli.com/xxl-job/%5D(https://www.xuxueli.com/xxl-job/)">中文文档</a></p>
-<p>源码仓库地址：</p>
-<table>
-<thead>
-<tr>
-<th>仓库地址</th>
-<th>Release Download</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><a href="https://github.com/xuxueli/xxl-job">https://github.com/xuxueli/xxl-job</a></td>
-<td><a href="https://github.com/xuxueli/xxl-job/releases">Download</a></td>
-</tr>
-<tr>
-<td><a href="http://gitee.com/xuxueli0323/xxl-job">http://gitee.com/xuxueli0323/xxl-job</a></td>
-<td><a href="http://gitee.com/xuxueli0323/xxl-job/releases">Download</a></td>
-</tr>
-</tbody></table>
-<p>Maven依赖Pom</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- http://repo1.maven.org/maven2/com/xuxueli/xxl-job-core/ --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.xuxueli<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xxl-job-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;最新稳定版本&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>为什么要使用Nacos，不使用Eureka呢</strong></p>
+<ol>
+<li>Eureka只实现注册中心，nacos同时实现注册中心与配置中心。</li>
+<li>Eureka2.0 闭源, Nacos国产各种中文文档。</li>
+</ol>
+<h3 id="搭建Nacos服务"><a href="#搭建Nacos服务" class="headerlink" title="搭建Nacos服务"></a>搭建Nacos服务</h3><h4 id="下载Nacos-server"><a href="#下载Nacos-server" class="headerlink" title="下载Nacos-server"></a>下载Nacos-server</h4><p><a href="https://github.com/alibaba/nacos/releases">GitHub地址</a> 。目前nacos-server的最新版本为2.0.1，不同版本可能些许差异。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105212761.png" alt="image-20210514105212761"></p>
+<p>下载到本地目录并解压，我放在了我代码同级目录。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105651639.png" alt="image-20210514105651639"></p>
+<span id="more"></span>
 
-<h3 id="开始集成"><a href="#开始集成" class="headerlink" title="开始集成"></a>开始集成</h3><h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><p>我下的2.3.0版本，执行数据库初始化SQL脚本</p>
-<p>脚本位置：xuxueli0323-xxl-job-2.3.0\xxl-job\doc\db\tables_xxl_job.sql </p>
-<h4 id="导入调度中心与公共依赖模块"><a href="#导入调度中心与公共依赖模块" class="headerlink" title="导入调度中心与公共依赖模块"></a>导入调度中心与公共依赖模块</h4><p>新建一个xxl-job模块，导入下载的源码。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxl-job-admin：调度中心</span><br><span class="line">xxl-job-core：公共依赖</span><br><span class="line">xxl-job-executor-samples：执行器Sample示例</span><br></pre></td></tr></table></figure>
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p>使用nacos\conf\nacos-mysql.sql脚本创建好数据库表和数据初始化。库名：nacos_config</p>
+<h4 id="配置数据库连接"><a href="#配置数据库连接" class="headerlink" title="配置数据库连接"></a>配置数据库连接</h4><p>编辑nacos\conf/application.properties，修改自己本地的数据库连接信息    </p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514110529653.png" alt="image-20210514110529653"></p>
+<h4 id="启动nacos-server服务"><a href="#启动nacos-server服务" class="headerlink" title="启动nacos-server服务"></a>启动nacos-server服务</h4><p>☆ 确保本机已配置JAVA环境变量，版本8+</p>
+<p>nacos\bin\下执行 startup.cmd -m standalone 启动。-m standalone代表单机模式。默认以集群模式启动。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112333044.png" alt="image-20210514112333044"></p>
+<h4 id="进入nacos管理控制台"><a href="#进入nacos管理控制台" class="headerlink" title="进入nacos管理控制台"></a>进入nacos管理控制台</h4><p>启动服务后，登录控制台看看吧。地址: <a href="http://localhost:8848/nacos">http://localhost:8848/nacos</a>. 账号/密码: nacos/nacos</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112527620.png" alt="image-20210514112527620"></p>
+<h3 id="SpringCloud整合Nacos"><a href="#SpringCloud整合Nacos" class="headerlink" title="SpringCloud整合Nacos"></a>SpringCloud整合Nacos</h3><h4 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h4><p>Nacos Server：2.0.1</p>
+<p>SpringBoot：   2.4.5</p>
+<p>SpringCloud： 2020.0.2</p>
+<p>SpringCloud Alibaba：2021.1</p>
+<p><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">版本依赖关系</a> </p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514154208991.png" alt="image-20210514154208991"></p>
+<h4 id="服务注册到Nacos"><a href="#服务注册到Nacos" class="headerlink" title="服务注册到Nacos"></a>服务注册到Nacos</h4><p>新建一个module，命名为ruipin-auth</p>
+<p><strong>POM依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">     	<span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>修改properties配置文件，使用自己的数据库配置，然后启动admin服务，使用账号admin / 123456登录，</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210603172138134.png" alt="image-20210603172138134"></p>
-<h4 id="构建自己的Job模块"><a href="#构建自己的Job模块" class="headerlink" title="构建自己的Job模块"></a>构建自己的Job模块</h4><p>新建ruipin-job模块</p>
-<p>添加Pom依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">        默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- nacos-config 配置中心依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.ruipin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>common-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;ruipin.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.ruipin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ruipin-demo-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;ruipin.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.xuxueli<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xxl-job-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>配置文件</strong></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br></pre></td></tr></table></figure>
 
-<p>添加配置文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8120</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-job</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span>      <span class="comment"># 默认值 properties</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">DEFAULT_GROUP</span>      <span class="comment"># 默认值 DEFAULT_GROUP</span></span><br><span class="line">        <span class="attr">prefix:</span> <span class="string">$&#123;spring.application.name&#125;</span></span><br><span class="line"><span class="attr">xxl:</span></span><br><span class="line">  <span class="attr">job:</span></span><br><span class="line">    <span class="attr">admin:</span></span><br><span class="line">      <span class="attr">addresses:</span> <span class="string">http://127.0.0.1:8080/xxl-job-admin</span></span><br><span class="line">    <span class="attr">executor:</span></span><br><span class="line">      <span class="attr">appname:</span> <span class="string">ruipin-job</span> <span class="comment"># 这个需要在xxl_job_group中添加记录</span></span><br><span class="line">      <span class="attr">address:</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">8130</span></span><br><span class="line">      <span class="attr">logpath:</span> <span class="string">/data/applogs/xxl-job/jobhandler</span></span><br><span class="line">      <span class="attr">logretentiondays:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">feign:</span></span><br><span class="line">  <span class="attr">okhttp:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>添加一个任务组 </p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `xxl_job`.`xxl_job_group`(`id`, `app_name`, `title`, `address_type`, `address_list`, `update_time`) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;ruipin-job&#x27;</span>, <span class="string">&#x27;睿聘执行器&#x27;</span>, <span class="number">0</span>, <span class="keyword">NULL</span>, <span class="string">&#x27;2021-06-04 10:51:14&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>代码编写</p>
-<p>XxlJobConfig是demo中的配置</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XxlJobConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(XxlJobConfig.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.admin.addresses&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String adminAddresses;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.accessToken:&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String accessToken;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.appname&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String appname;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.address&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.ip:&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String ip;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.port&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.logpath&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String logPath;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.logretentiondays&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> logRetentionDays;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> XxlJobSpringExecutor <span class="title">xxlJobExecutor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        logger.info(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; xxl-job config init.&quot;</span>);</span><br><span class="line">        XxlJobSpringExecutor xxlJobSpringExecutor = <span class="keyword">new</span> XxlJobSpringExecutor();</span><br><span class="line">        xxlJobSpringExecutor.setAdminAddresses(adminAddresses);</span><br><span class="line">        xxlJobSpringExecutor.setAppname(appname);</span><br><span class="line">        xxlJobSpringExecutor.setAddress(address);</span><br><span class="line">        xxlJobSpringExecutor.setIp(ip);</span><br><span class="line">        xxlJobSpringExecutor.setPort(port);</span><br><span class="line">        xxlJobSpringExecutor.setAccessToken(accessToken);</span><br><span class="line">        xxlJobSpringExecutor.setLogPath(logPath);</span><br><span class="line">        xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> xxlJobSpringExecutor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>启动入口开启服务发现</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(AuthApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>自己的一个定时任务</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleXxlJob</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DemoFeignClient demoFeignClient;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1、简单任务示例（Bean模式）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@XxlJob(&quot;ruipinDemoJob&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoJobHandler</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        XxlJobHelper.log(<span class="string">&quot;XXL-JOB, Hello World.&quot;</span>);</span><br><span class="line">        Result&lt;String&gt; ruipin = demoFeignClient.sayHello(<span class="string">&quot;ruipin&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;调用结果： &quot;</span> + ruipin);</span><br><span class="line">        XxlJobHelper.log(<span class="string">&quot;CCCCCCCCCCCCCCC&quot;</span> + ruipin.getCode() + <span class="string">&quot; : &quot;</span> + ruipin.getMsg());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>启动类</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@SpringBootApplication(scanBasePackages = &#123;&quot;com.ruipin.app.*&quot;, &quot;com.ruipin.job.*&quot;&#125;)</span><br><span class="line">@EnableDiscoveryClient</span><br><span class="line">@EnableFeignClients(&quot;com.ruipin.app.*&quot;)</span><br><span class="line">public class JobApplication &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(JobApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604154804976.png" alt="image-20210604154804976"></p>
-<p>配置上面几项即可。操作手动执行一次，就可以看到调度日志中的结果了。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604154923206.png" alt="image-20210604154923206"></p>
-<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><p>TODO…</p>
+<p><strong>访问Nacos服务列表</strong>查看</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514145800211.png" alt="image-20210514145800211"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此SpringCloud整合Nacos注册中心就完成了，后面我们继续使用Nacos完成配置中心配置。</p>
 ]]></content>
       <categories>
         <category>SpringCloud从零开始构建微服务</category>
       </categories>
       <tags>
         <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringCloud学习 | 第三篇 SpringCloud整合Nacos实现配置中心</title>
+    <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%89%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/</url>
+    <content><![CDATA[<blockquote>
+<p>接上述文章，我们在auth模块中使用Nacos实现配置中心。</p>
+</blockquote>
+<h3 id="一段废话"><a href="#一段废话" class="headerlink" title="一段废话"></a>一段废话</h3><p>相比Eureka要专门搭建一个config服务实现配置中心，Nacos集成了配置中心。个人觉得还是值得推荐。</p>
+<h3 id="SpringCloud实现配置中心"><a href="#SpringCloud实现配置中心" class="headerlink" title="SpringCloud实现配置中心"></a>SpringCloud实现配置中心</h3><h4 id="添加pom依赖"><a href="#添加pom依赖" class="headerlink" title="添加pom依赖"></a>添加pom依赖</h4><p>相比上一文，我们追加了一个spring-cloud-starter-alibaba-nacos-config依赖。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- nacos-config 配置中心依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="配置文件添加nacos配置"><a href="#配置文件添加nacos配置" class="headerlink" title="配置文件添加nacos配置"></a>配置文件添加nacos配置</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span>      <span class="comment"># 默认值 properties</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">DEFAULT_GROUP</span>      <span class="comment"># 默认值 DEFAULT_GROUP</span></span><br><span class="line">        <span class="attr">prefix:</span> <span class="string">$&#123;spring.application.name&#125;</span></span><br><span class="line"><span class="attr">example:</span></span><br><span class="line">  <span class="attr">hello-word:</span> <span class="string">Hello</span> <span class="string">Ruipin</span>		 <span class="comment"># 配置测试信息</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="添加测试接口读取配置"><a href="#添加测试接口读取配置" class="headerlink" title="添加测试接口读取配置"></a>添加测试接口读取配置</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RefreshScope</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/sample&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;example.hello-word&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String word;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Result <span class="title">getWord</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Result.success(<span class="keyword">this</span>.word);<span class="comment">//Result为自定义响应，可以直接返回this.word字符串</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>启动服务，第一次调用 <a href="http://localhost:8000/sample/hello">http://localhost:8000/sample/hello</a></p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514161730557.png" alt="image-20210514161730557"></p>
+<h4 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h4><p>打开Nacos界面，配置列表，添加配置：</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162229678.png" alt="image-20210514162229678"></p>
+<p>Data ID: 输入 ${prefix}-${spring.profiles.active}.${file-extension}，根据我上面的配置，我的配置截图</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162723996.png" alt="image-20210514162723996"></p>
+<p>点击发布，列表中出现一条配置。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162808803.png" alt="image-20210514162808803"></p>
+<h4 id="再次测试"><a href="#再次测试" class="headerlink" title="再次测试"></a>再次测试</h4><p>第二次调用 <a href="http://localhost:8000/sample/hello%EF%BC%8C%E6%88%90%E5%8A%9F%E5%AE%9E%E7%8E%B0%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E7%9A%84%E5%8A%A8%E6%80%81%E5%88%B7%E6%96%B0%E3%80%82">http://localhost:8000/sample/hello，成功实现配置信息的动态刷新。</a></p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514162839536.png" alt="image-20210514162839536"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此，SpringCloud整合Nacos实现配置中心就完成了。相比Eureka确实方便了很多。</p>
+]]></content>
+      <categories>
+        <category>SpringCloud从零开始构建微服务</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringCloud学习 | 第九篇 微服务部署</title>
+    <url>/2021/06/21/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B9%9D%EF%BC%89%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<h3 id="Jekins安装"><a href="#Jekins安装" class="headerlink" title="Jekins安装"></a>Jekins安装</h3><h4 id="Windows下的安装"><a href="#Windows下的安装" class="headerlink" title="Windows下的安装"></a>Windows下的安装</h4><h4 id="Linux下的安装"><a href="#Linux下的安装" class="headerlink" title="Linux下的安装"></a>Linux下的安装</h4><h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><h4 id="Pom依赖"><a href="#Pom依赖" class="headerlink" title="Pom依赖"></a>Pom依赖</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">  &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">       &lt;configuration&gt;</span><br><span class="line">         &lt;executable&gt;true&lt;/executable&gt;</span><br><span class="line">       &lt;/configuration&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">  &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<p>mvn clean package -Dskip.test=true 构建fat-jar</p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3>]]></content>
+      <categories>
+        <category>SpringCloud从零开始构建微服务</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows安装教程之Jekins的安装</title>
+    <url>/2021/07/30/Windows%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h3><p>OS: Windows 10</p>
+<p>JDK: 1.8.0_171</p>
+<p>Maven: 3.6.3</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a href="https://www.jenkins.io/">官网</a> 下载Jenkins安装包。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210730104534113.png" alt="image-20210730104534113"></p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>一路傻瓜安装即可。</p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>这里直接使用命令启动。管理员权限打开cmd或Power Shell。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort=8080</span><br></pre></td></tr></table></figure>
+
+<p>启动Jenkins服务。看到如下信息表示启动成功。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210730104830318.png" alt="image-20210730104830318"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2>]]></content>
+      <categories>
+        <category>软件安装</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
       </tags>
   </entry>
   <entry>
@@ -434,60 +650,6 @@
 
 
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>到此，我们的服务间调用就整合完毕了。</p>
-]]></content>
-      <categories>
-        <category>SpringCloud从零开始构建微服务</category>
-      </categories>
-      <tags>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringCloud学习 | 第二篇 SpringCloud整合Nacos实现注册中心</title>
-    <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89%20Nacos%E5%AE%9E%E7%8E%B0%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</url>
-    <content><![CDATA[<blockquote>
-<p>接上述文章，我们开始搭建Nacos服务。</p>
-</blockquote>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><strong>为什么要使用Nacos，不使用Eureka呢</strong></p>
-<ol>
-<li>Eureka只实现注册中心，nacos同时实现注册中心与配置中心。</li>
-<li>Eureka2.0 闭源, Nacos国产各种中文文档。</li>
-</ol>
-<h3 id="搭建Nacos服务"><a href="#搭建Nacos服务" class="headerlink" title="搭建Nacos服务"></a>搭建Nacos服务</h3><h4 id="下载Nacos-server"><a href="#下载Nacos-server" class="headerlink" title="下载Nacos-server"></a>下载Nacos-server</h4><p><a href="https://github.com/alibaba/nacos/releases">GitHub地址</a> 。目前nacos-server的最新版本为2.0.1，不同版本可能些许差异。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105212761.png" alt="image-20210514105212761"></p>
-<p>下载到本地目录并解压，我放在了我代码同级目录。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514105651639.png" alt="image-20210514105651639"></p>
-<span id="more"></span>
-
-<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><p>使用nacos\conf\nacos-mysql.sql脚本创建好数据库表和数据初始化。库名：nacos_config</p>
-<h4 id="配置数据库连接"><a href="#配置数据库连接" class="headerlink" title="配置数据库连接"></a>配置数据库连接</h4><p>编辑nacos\conf/application.properties，修改自己本地的数据库连接信息    </p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514110529653.png" alt="image-20210514110529653"></p>
-<h4 id="启动nacos-server服务"><a href="#启动nacos-server服务" class="headerlink" title="启动nacos-server服务"></a>启动nacos-server服务</h4><p>☆ 确保本机已配置JAVA环境变量，版本8+</p>
-<p>nacos\bin\下执行 startup.cmd -m standalone 启动。-m standalone代表单机模式。默认以集群模式启动。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112333044.png" alt="image-20210514112333044"></p>
-<h4 id="进入nacos管理控制台"><a href="#进入nacos管理控制台" class="headerlink" title="进入nacos管理控制台"></a>进入nacos管理控制台</h4><p>启动服务后，登录控制台看看吧。地址: <a href="http://localhost:8848/nacos">http://localhost:8848/nacos</a>. 账号/密码: nacos/nacos</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514112527620.png" alt="image-20210514112527620"></p>
-<h3 id="SpringCloud整合Nacos"><a href="#SpringCloud整合Nacos" class="headerlink" title="SpringCloud整合Nacos"></a>SpringCloud整合Nacos</h3><h4 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h4><p>Nacos Server：2.0.1</p>
-<p>SpringBoot：   2.4.5</p>
-<p>SpringCloud： 2020.0.2</p>
-<p>SpringCloud Alibaba：2021.1</p>
-<p><a href="https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E">版本依赖关系</a> </p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514154208991.png" alt="image-20210514154208991"></p>
-<h4 id="服务注册到Nacos"><a href="#服务注册到Nacos" class="headerlink" title="服务注册到Nacos"></a>服务注册到Nacos</h4><p>新建一个module，命名为ruipin-auth</p>
-<p><strong>POM依赖</strong></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">     	<span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">			默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>配置文件</strong></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8000</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-auth</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>启动入口开启服务发现</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AuthApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(AuthApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>访问Nacos服务列表</strong>查看</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210514145800211.png" alt="image-20210514145800211"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>到此SpringCloud整合Nacos注册中心就完成了，后面我们继续使用Nacos完成配置中心配置。</p>
 ]]></content>
       <categories>
         <category>SpringCloud从零开始构建微服务</category>
@@ -608,6 +770,73 @@ live2d-widget-model-z16
       </tags>
   </entry>
   <entry>
+    <title>SpringCloud学习 | 第八篇 xxl-job构建定时调度</title>
+    <url>/2021/05/31/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%85%AB%EF%BC%89%20xxl-job%E6%9E%84%E5%BB%BA%E5%AE%9A%E6%97%B6%E8%B0%83%E5%BA%A6/</url>
+    <content><![CDATA[<blockquote>
+<p>官网地址：[<a href="https://www.xuxueli.com/xxl-job/">https://www.xuxueli.com/xxl-job/</a>]</p>
+<p>XXL-JOB是一个分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。现已开放源代码并接入多家公司线上产品线，开箱即用。</p>
+</blockquote>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="%5Bhttps://www.xuxueli.com/xxl-job/%5D(https://www.xuxueli.com/xxl-job/)">中文文档</a></p>
+<p>源码仓库地址：</p>
+<table>
+<thead>
+<tr>
+<th>仓库地址</th>
+<th>Release Download</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/xuxueli/xxl-job">https://github.com/xuxueli/xxl-job</a></td>
+<td><a href="https://github.com/xuxueli/xxl-job/releases">Download</a></td>
+</tr>
+<tr>
+<td><a href="http://gitee.com/xuxueli0323/xxl-job">http://gitee.com/xuxueli0323/xxl-job</a></td>
+<td><a href="http://gitee.com/xuxueli0323/xxl-job/releases">Download</a></td>
+</tr>
+</tbody></table>
+<p>Maven依赖Pom</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- http://repo1.maven.org/maven2/com/xuxueli/xxl-job-core/ --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.xuxueli<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xxl-job-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;最新稳定版本&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开始集成"><a href="#开始集成" class="headerlink" title="开始集成"></a>开始集成</h3><h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><p>我下的2.3.0版本，执行数据库初始化SQL脚本</p>
+<p>脚本位置：xuxueli0323-xxl-job-2.3.0\xxl-job\doc\db\tables_xxl_job.sql </p>
+<h4 id="导入调度中心与公共依赖模块"><a href="#导入调度中心与公共依赖模块" class="headerlink" title="导入调度中心与公共依赖模块"></a>导入调度中心与公共依赖模块</h4><p>新建一个xxl-job模块，导入下载的源码。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xxl-job-admin：调度中心</span><br><span class="line">xxl-job-core：公共依赖</span><br><span class="line">xxl-job-executor-samples：执行器Sample示例</span><br></pre></td></tr></table></figure>
+
+<p>修改properties配置文件，使用自己的数据库配置，然后启动admin服务，使用账号admin / 123456登录，</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210603172138134.png" alt="image-20210603172138134"></p>
+<h4 id="构建自己的Job模块"><a href="#构建自己的Job模块" class="headerlink" title="构建自己的Job模块"></a>构建自己的Job模块</h4><p>新建ruipin-job模块</p>
+<p>添加Pom依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud从2020版本后对配置文件加载进行了重构，</span></span><br><span class="line"><span class="comment">        默认不加载bootstrap配置文件，添加bootstrap依赖解决该问题 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-bootstrap<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-loadbalancer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 注册中心 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- nacos-config 配置中心依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.ruipin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>common-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;ruipin.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.ruipin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ruipin-demo-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;ruipin.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.xuxueli<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xxl-job-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>添加配置文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8120</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">ruipin-job</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="string">http://127.0.0.1:8848</span></span><br><span class="line">      <span class="attr">config:</span></span><br><span class="line">        <span class="attr">file-extension:</span> <span class="string">yaml</span>      <span class="comment"># 默认值 properties</span></span><br><span class="line">        <span class="attr">group:</span> <span class="string">DEFAULT_GROUP</span>      <span class="comment"># 默认值 DEFAULT_GROUP</span></span><br><span class="line">        <span class="attr">prefix:</span> <span class="string">$&#123;spring.application.name&#125;</span></span><br><span class="line"><span class="attr">xxl:</span></span><br><span class="line">  <span class="attr">job:</span></span><br><span class="line">    <span class="attr">admin:</span></span><br><span class="line">      <span class="attr">addresses:</span> <span class="string">http://127.0.0.1:8080/xxl-job-admin</span></span><br><span class="line">    <span class="attr">executor:</span></span><br><span class="line">      <span class="attr">appname:</span> <span class="string">ruipin-job</span> <span class="comment"># 这个需要在xxl_job_group中添加记录</span></span><br><span class="line">      <span class="attr">address:</span></span><br><span class="line">      <span class="attr">port:</span> <span class="number">8130</span></span><br><span class="line">      <span class="attr">logpath:</span> <span class="string">/data/applogs/xxl-job/jobhandler</span></span><br><span class="line">      <span class="attr">logretentiondays:</span> <span class="number">30</span></span><br><span class="line"><span class="attr">feign:</span></span><br><span class="line">  <span class="attr">okhttp:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>添加一个任务组 </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `xxl_job`.`xxl_job_group`(`id`, `app_name`, `title`, `address_type`, `address_list`, `update_time`) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;ruipin-job&#x27;</span>, <span class="string">&#x27;睿聘执行器&#x27;</span>, <span class="number">0</span>, <span class="keyword">NULL</span>, <span class="string">&#x27;2021-06-04 10:51:14&#x27;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>代码编写</p>
+<p>XxlJobConfig是demo中的配置</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XxlJobConfig</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(XxlJobConfig.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.admin.addresses&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String adminAddresses;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.accessToken:&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String accessToken;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.appname&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String appname;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.address&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String address;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.ip:&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String ip;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.port&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.logpath&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String logPath;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;xxl.job.executor.logretentiondays&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> logRetentionDays;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> XxlJobSpringExecutor <span class="title">xxlJobExecutor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        logger.info(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; xxl-job config init.&quot;</span>);</span><br><span class="line">        XxlJobSpringExecutor xxlJobSpringExecutor = <span class="keyword">new</span> XxlJobSpringExecutor();</span><br><span class="line">        xxlJobSpringExecutor.setAdminAddresses(adminAddresses);</span><br><span class="line">        xxlJobSpringExecutor.setAppname(appname);</span><br><span class="line">        xxlJobSpringExecutor.setAddress(address);</span><br><span class="line">        xxlJobSpringExecutor.setIp(ip);</span><br><span class="line">        xxlJobSpringExecutor.setPort(port);</span><br><span class="line">        xxlJobSpringExecutor.setAccessToken(accessToken);</span><br><span class="line">        xxlJobSpringExecutor.setLogPath(logPath);</span><br><span class="line">        xxlJobSpringExecutor.setLogRetentionDays(logRetentionDays);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> xxlJobSpringExecutor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自己的一个定时任务</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleXxlJob</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DemoFeignClient demoFeignClient;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1、简单任务示例（Bean模式）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@XxlJob(&quot;ruipinDemoJob&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoJobHandler</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        XxlJobHelper.log(<span class="string">&quot;XXL-JOB, Hello World.&quot;</span>);</span><br><span class="line">        Result&lt;String&gt; ruipin = demoFeignClient.sayHello(<span class="string">&quot;ruipin&quot;</span>);</span><br><span class="line">        log.info(<span class="string">&quot;调用结果： &quot;</span> + ruipin);</span><br><span class="line">        XxlJobHelper.log(<span class="string">&quot;CCCCCCCCCCCCCCC&quot;</span> + ruipin.getCode() + <span class="string">&quot; : &quot;</span> + ruipin.getMsg());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@SpringBootApplication(scanBasePackages = &#123;&quot;com.ruipin.app.*&quot;, &quot;com.ruipin.job.*&quot;&#125;)</span><br><span class="line">@EnableDiscoveryClient</span><br><span class="line">@EnableFeignClients(&quot;com.ruipin.app.*&quot;)</span><br><span class="line">public class JobApplication &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        SpringApplication.run(JobApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604154804976.png" alt="image-20210604154804976"></p>
+<p>配置上面几项即可。操作手动执行一次，就可以看到调度日志中的结果了。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604154923206.png" alt="image-20210604154923206"></p>
+<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><p>TODO…</p>
+]]></content>
+      <categories>
+        <category>SpringCloud从零开始构建微服务</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringCloud学习 | 第四篇 SpringCloud整合Gateway实现API网关</title>
     <url>/2021/05/14/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%9B%9B%EF%BC%89%20Gateway%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%BD%91%E5%85%B3%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<blockquote>
@@ -677,6 +906,49 @@ live2d-widget-model-z16
       </tags>
   </entry>
   <entry>
+    <title>hexo（二）:将博客推送至github</title>
+    <url>/2021/05/11/hexo%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0github/</url>
+    <content><![CDATA[<h3 id="操作步骤。"><a href="#操作步骤。" class="headerlink" title="操作步骤。"></a>操作步骤。</h3><p> 登录github，并创建public仓库。</p>
+<p> 仓库名命名格式：如果帐号名为<code>jack</code>，则repository为<code>jack.github.io</code></p>
+<h3 id="安装deploy扩展"><a href="#安装deploy扩展" class="headerlink" title="安装deploy扩展"></a>安装deploy扩展</h3><p>在跟目录(2021-blog)内，执行<code>npm install hexo-deployer-git --save</code> 安装部署的扩展。</p>
+<h3 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h3><p> 根目录下使用 hexo d -g 即可将项目推送至github远程仓库。</p>
+<p> 快使用jack.github.io看看能不能访问了？</p>
+<h3 id="github添加免密"><a href="#github添加免密" class="headerlink" title="github添加免密"></a>github添加免密</h3><p> 本地生成ssh秘钥文件</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可</span><br><span class="line">ssh-keygen -t rsa -C “m***n_11@126.com” </span><br></pre></td></tr></table></figure>
+<p> github网站，头像-&gt; settings-&gt; SSH and GPG keys -&gt; New SSh Key </p>
+<p> 将电脑上C:\Users.ssh 中的id_rsa.pub中的内容 复制到key中，title自定义即可。</p>
+<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a> 测试下链接，当看到</p>
+<p> <code>Hi jack! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
+<p> 说明配置成功，再推送就可以免密推送了。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a>:jack/jack.github.io.git这种。</p>
+<pre><code>修改后推送成功。
+</code></pre>
+]]></content>
+      <categories>
+        <category>使用hexo搭建博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>优秀的博客地址整理</title>
+    <url>/2021/05/24/%E4%BC%98%E7%A7%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</url>
+    <content><![CDATA[<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>[<a href="https://pdai.tech/">Java 全栈知识体系</a>]</p>
+<p>[<a href="https://blog.csdn.net/sudadaipeng1">上面博客的博主CSDN</a>]</p>
+<p>[<a href="https://www.fangzhipeng.com/">方志朋的专栏</a>]</p>
+<p>[<a href="https://blog.csdn.net/qq_36850813">Java服务端妹子的CSDN</a>]</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>[<a href="https://backlog.com/git-tutorial/cn/">猴子都能懂的GIT入门</a>]</p>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>[<a href="https://blog.csdn.net/Eastmount">一个教书的程序员-杨秀璋</a>]</p>
+<h3 id="不好归类"><a href="#不好归类" class="headerlink" title="不好归类"></a>不好归类</h3><p>[<a href="https://blog.csdn.net/chushoufengli">比较杂的一个博客CSDN</a>]</p>
+<p>[<a href="https://chenyu.blog.csdn.net/article/details/79449026">优秀博客汇总地址</a>]</p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo（三）使用gitee搭建自己的图床</title>
     <url>/2021/05/11/hexo%EF%BC%88%E4%B8%89%EF%BC%89%E4%BD%BF%E7%94%A8gitee%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h2 id="gitee创建个人repo"><a href="#gitee创建个人repo" class="headerlink" title="gitee创建个人repo"></a>gitee创建个人repo</h2><p>使用gitee创建一个public仓库image_repo</p>
@@ -721,46 +993,34 @@ live2d-widget-model-z16
       </tags>
   </entry>
   <entry>
-    <title>hexo（二）:将博客推送至github</title>
-    <url>/2021/05/11/hexo%EF%BC%88%E4%BA%8C%EF%BC%89%E5%B0%86%E5%8D%9A%E5%AE%A2%E6%8E%A8%E9%80%81%E5%88%B0github/</url>
-    <content><![CDATA[<h3 id="操作步骤。"><a href="#操作步骤。" class="headerlink" title="操作步骤。"></a>操作步骤。</h3><p> 登录github，并创建public仓库。</p>
-<p> 仓库名命名格式：如果帐号名为<code>jack</code>，则repository为<code>jack.github.io</code></p>
-<h3 id="安装deploy扩展"><a href="#安装deploy扩展" class="headerlink" title="安装deploy扩展"></a>安装deploy扩展</h3><p>在跟目录(2021-blog)内，执行<code>npm install hexo-deployer-git --save</code> 安装部署的扩展。</p>
-<h3 id="修改站点配置"><a href="#修改站点配置" class="headerlink" title="修改站点配置"></a>修改站点配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:jack/jack.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h3 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h3><p> 根目录下使用 hexo d -g 即可将项目推送至github远程仓库。</p>
-<p> 快使用jack.github.io看看能不能访问了？</p>
-<h3 id="github添加免密"><a href="#github添加免密" class="headerlink" title="github添加免密"></a>github添加免密</h3><p> 本地生成ssh秘钥文件</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 检查是否存在</span><br><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br><span class="line">// 生成密钥，一路回车即可</span><br><span class="line">ssh-keygen -t rsa -C “m***n_11@126.com” </span><br></pre></td></tr></table></figure>
-<p> github网站，头像-&gt; settings-&gt; SSH and GPG keys -&gt; New SSh Key </p>
-<p> 将电脑上C:\Users.ssh 中的id_rsa.pub中的内容 复制到key中，title自定义即可。</p>
-<p> 添加完毕后，本地命令行 输入 ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;</a> 测试下链接，当看到</p>
-<p> <code>Hi jack! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></p>
-<p> 说明配置成功，再推送就可以免密推送了。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>  我最终配置没有成功，发现我本地deploy文件里的配置是https的，因为免密是ssh的，所以地址一定要使用<a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#x6f;&#109;</a>:jack/jack.github.io.git这种。</p>
-<pre><code>修改后推送成功。
-</code></pre>
+    <title>数学笔记</title>
+    <url>/2021/06/17/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><blockquote>
+<p>数学一共25道题，3分一个，满分75分。</p>
+<p>计划答对20+，得分60+</p>
+<p>去年的考题应用题9道，几何7道，数据分析5道，几何2道，其他2道。</p>
+</blockquote>
+<h3 id="笔记点"><a href="#笔记点" class="headerlink" title="笔记点"></a>笔记点</h3><h4 id="1-数"><a href="#1-数" class="headerlink" title="1. 数"></a>1. 数</h4><h4 id="5-概率与排列组合"><a href="#5-概率与排列组合" class="headerlink" title="5.概率与排列组合"></a>5.概率与排列组合</h4><ol>
+<li>加法原理: 分类原理</li>
+<li>乘法原理: 分步原理 </li>
+</ol>
 ]]></content>
-      <categories>
-        <category>使用hexo搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
   </entry>
   <entry>
-    <title>优秀的博客地址整理</title>
-    <url>/2021/05/24/%E4%BC%98%E7%A7%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</url>
-    <content><![CDATA[<h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>[<a href="https://pdai.tech/">Java 全栈知识体系</a>]</p>
-<p>[<a href="https://blog.csdn.net/sudadaipeng1">上面博客的博主CSDN</a>]</p>
-<p>[<a href="https://www.fangzhipeng.com/">方志朋的专栏</a>]</p>
-<p>[<a href="https://blog.csdn.net/qq_36850813">Java服务端妹子的CSDN</a>]</p>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>[<a href="https://backlog.com/git-tutorial/cn/">猴子都能懂的GIT入门</a>]</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>[<a href="https://blog.csdn.net/Eastmount">一个教书的程序员-杨秀璋</a>]</p>
-<h3 id="不好归类"><a href="#不好归类" class="headerlink" title="不好归类"></a>不好归类</h3><p>[<a href="https://blog.csdn.net/chushoufengli">比较杂的一个博客CSDN</a>]</p>
-<p>[<a href="https://chenyu.blog.csdn.net/article/details/79449026">优秀博客汇总地址</a>]</p>
+    <title>英语笔记</title>
+    <url>/2021/06/18/%E8%8B%B1%E8%AF%AD%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><blockquote>
+<p>英语题型分布：</p>
+<p>完形填空，20道题，每题0.5分。满分10分                6</p>
+<p>阅读理解，20道题，每题2分。满分40分                  24</p>
+<p>新题型，10分                                                            8</p>
+<p>翻译题型，英译汉，一共15分                                   10</p>
+<p>英语写作，小作文10分，大作文15分。满分25分。 6 + 10</p>
+<p>计划得分60分。</p>
+</blockquote>
+<h3 id="完形填空"><a href="#完形填空" class="headerlink" title="完形填空"></a>完形填空</h3><blockquote>
+<p>第一句往往都是题意。</p>
+</blockquote>
 ]]></content>
   </entry>
   <entry>
