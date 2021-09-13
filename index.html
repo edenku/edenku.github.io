@@ -159,20 +159,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -210,6 +210,446 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/07/MySQL%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">MySQL常用命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-09-07 00:00:00 / 修改时间：13:55:43" itemprop="dateCreated datePublished" datetime="2021-09-07T00:00:00+08:00">2021-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">常用命令</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>145</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li><p>统计近7天的某数据，无数据时补0。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="variable">@cdate</span> :<span class="operator">=</span> date_add( <span class="variable">@cdate</span>, <span class="type">INTERVAL</span> <span class="operator">-</span> <span class="number">1</span> <span class="keyword">DAY</span> ) <span class="type">date</span> </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	( <span class="keyword">SELECT</span> <span class="variable">@cdate</span> :<span class="operator">=</span> date_add( CURDATE( ), <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span> ) <span class="keyword">FROM</span> rp_notice LIMIT <span class="number">7</span> ) a</span><br></pre></td></tr></table></figure></li>
+<li><p>todo </p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/Python%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0%E4%B9%8BBeautifulSoup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/07/Python%E6%A8%A1%E5%9D%97%E5%AD%A6%E4%B9%A0%E4%B9%8BBeautifulSoup/" class="post-title-link" itemprop="url">Python模块学习之BeautifulSoup使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-07T00:00:00+08:00">2021-09-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-13 15:18:01" itemprop="dateModified" datetime="2021-09-13T15:18:01+08:00">2021-09-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>BeautifulSoup简称Bs4，是爬虫非常常用的三方库。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/#id7">中文文档</a></p>
+<h3 id="安装BS4"><a href="#安装BS4" class="headerlink" title="安装BS4"></a>安装BS4</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># pip 安装方式</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip install beautifulsoup4</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip install lxml</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> pip install html5lib</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># easy_install</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> easy_install beautifulsoup4</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> easy_install lxml</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> easy_install html5lib</span></span><br></pre></td></tr></table></figure>
+
+<p>lxml 与html5lib都是第三方的HTML解析器。</p>
+<h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">html_doc = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse&#x27;s story&lt;/b&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;story&quot;&gt;</span></span><br><span class="line"><span class="string"> 	Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="string"> &lt;a href=&quot;http://example.com/elsie&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="string"> &lt;a href=&quot;http://example.com/lacie&quot; class=&quot;sister&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt; and</span></span><br><span class="line"><span class="string"> &lt;a href=&quot;http://example.com/tillie&quot; class=&quot;sister&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;;</span></span><br><span class="line"><span class="string"> and they lived at the bottom of a well.</span></span><br><span class="line"><span class="string">&lt;/p&gt;</span></span><br><span class="line"><span class="string">&lt;p class=&quot;story&quot;&gt;...&lt;/p&gt;</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html_doc, <span class="string">&#x27;lxml&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>简单使用</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; soup.title</span><br><span class="line">&lt;title&gt;The Dormouse<span class="string">&#x27;s story&lt;/title&gt;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; soup.title.name</span></span><br><span class="line"><span class="string">&#x27;</span>title<span class="string">&#x27;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; soup.title.get_text()</span></span><br><span class="line"><span class="string">&quot;The Dormouse&#x27;</span>s story<span class="string">&quot;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; soup.title.parent</span></span><br><span class="line"><span class="string">&lt;head&gt;&lt;title&gt;The Dormouse&#x27;s story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; soup.title.parent.name</span></span><br><span class="line"><span class="string">&#x27;head&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>找到所有a标签的链接</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; soup.a</span><br><span class="line">&lt;a <span class="class"><span class="keyword">class</span>=&quot;<span class="title">sister</span>&quot; <span class="title">href</span>=&quot;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">elsie</span>&quot; <span class="title">id</span>=&quot;<span class="title">link1</span>&quot;&gt;<span class="title">Elsie</span>&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">m</span> = [ <span class="title">o</span>[&#x27;<span class="title">href</span>&#x27;] <span class="title">for</span> <span class="title">o</span> <span class="title">in</span> <span class="title">soup</span>.<span class="title">find_all</span>(&#x27;<span class="title">a</span>&#x27;) ]</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">m</span></span></span><br><span class="line"><span class="class">[&#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">elsie</span>&#x27;, &#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">lacie</span>&#x27;, &#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">tillie</span>&#x27;]</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">n</span> = [ <span class="title">o</span>.<span class="title">get</span>(&#x27;<span class="title">href</span>&#x27;) <span class="title">for</span> <span class="title">o</span> <span class="title">in</span> <span class="title">soup</span>.<span class="title">find_all</span>(&#x27;<span class="title">a</span>&#x27;) ]</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">n</span></span></span><br><span class="line"><span class="class">[&#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">elsie</span>&#x27;, &#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">lacie</span>&#x27;, &#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">tillie</span>&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; soup.select(<span class="string">&quot;body p a&quot;</span>)   <span class="comment"># 逐级查找</span></span><br><span class="line">&gt;&gt;&gt; soup.select(<span class="string">&quot;p &gt; a&quot;</span>)	  <span class="comment"># 直接找到标签下的子标签 </span></span><br><span class="line">[&lt;<span class="type">a</span> <span class="type">class</span>=<span class="string">&quot;sister&quot;</span> <span class="type">href</span>=<span class="string">&quot;http://example.com/elsie&quot;</span> <span class="type">id</span>=<span class="string">&quot;link1&quot;</span>&gt;<span class="type">Elsie</span>&lt;/<span class="type">a</span>&gt;, &lt;<span class="type">a</span> <span class="type">class</span>=<span class="string">&quot;sister&quot;</span> <span class="type">href</span>=<span class="string">&quot;http://example.com/lacie&quot;</span> <span class="type">id</span>=<span class="string">&quot;link2&quot;</span>&gt;<span class="type">Lacie</span>&lt;/<span class="type">a</span>&gt;, &lt;<span class="type">a</span> <span class="type">class</span>=<span class="string">&quot;sister&quot;</span> <span class="type">href</span>=<span class="string">&quot;http://example.com/tillie&quot;</span> <span class="type">id</span>=<span class="string">&quot;link3&quot;</span>&gt;<span class="type">Tillie</span>&lt;/<span class="type">a</span>&gt;]</span><br><span class="line">&gt;&gt;&gt; soup.select(<span class="string">&quot;#link1 ~ .sister&quot;</span>)	<span class="comment">#后续兄弟节点选择器</span></span><br><span class="line">[&lt;<span class="type">a</span> <span class="type">class</span>=<span class="string">&quot;sister&quot;</span> <span class="type">href</span>=<span class="string">&quot;http://example.com/lacie&quot;</span> <span class="type">id</span>=<span class="string">&quot;link2&quot;</span>&gt;<span class="type">Lacie</span>&lt;/<span class="type">a</span>&gt;,</span><br><span class="line">&lt;<span class="type">a</span> <span class="type">class</span>=<span class="string">&quot;sister&quot;</span> <span class="type">href</span>=<span class="string">&quot;http://example.com/tillie&quot;</span>  <span class="type">id</span>=<span class="string">&quot;link3&quot;</span>&gt;<span class="type">Tillie</span>&lt;/<span class="type">a</span>&gt;]</span><br><span class="line">&gt;&gt;&gt; soup.select(<span class="string">&quot;#link1 + .sister&quot;</span>) <span class="comment"># 相邻兄弟节点选择器</span></span><br><span class="line">[&lt;<span class="type">a</span> <span class="type">class</span>=<span class="string">&quot;sister&quot;</span> <span class="type">href</span>=<span class="string">&quot;http://example.com/lacie&quot;</span> <span class="type">id</span>=<span class="string">&quot;link2&quot;</span>&gt;<span class="type">Lacie</span>&lt;/<span class="type">a</span>&gt;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h2><h3 id="对象种类"><a href="#对象种类" class="headerlink" title="对象种类"></a>对象种类</h3><p>Beautiful Soup将复杂HTML文档转换成一个复杂的树形结构,每个节点都是Python对象,所有对象可以归纳为4种:Tag<code>,</code>NavigableString<code>,</code>BeautifulSoup<code>,</code>Comment.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="built_in">type</span>(soup.a)  <span class="comment"># Tag</span></span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">soup</span>.<span class="title">a</span>.<span class="title">name</span>	  # <span class="title">Name</span> 每个<span class="title">tag</span>都有自己的名字,使用.<span class="title">name</span>获取</span></span><br><span class="line"><span class="class">&#x27;<span class="title">a</span>&#x27;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">soup</span>.<span class="title">a</span>		 # <span class="title">Attributes</span> 一个<span class="title">tag</span>可能多个属性，诸如 <span class="title">class</span>/<span class="title">href</span>/<span class="title">id</span>等。</span></span><br><span class="line"><span class="class">&lt;<span class="title">a</span> <span class="title">class</span>=&quot;<span class="title">sister</span>&quot; <span class="title">href</span>=&quot;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">elsie</span>&quot; <span class="title">id</span>=&quot;<span class="title">link1</span>&quot;&gt;<span class="title">Elsie</span>&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">soup</span>.<span class="title">a</span>[&#x27;<span class="title">href</span>&#x27;]</span></span><br><span class="line"><span class="class">&#x27;<span class="title">http</span>://<span class="title">example</span>.<span class="title">com</span>/<span class="title">elsie</span>&#x27;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">soup</span>.<span class="title">a</span>[&#x27;<span class="title">class</span>&#x27;]</span></span><br><span class="line"><span class="class">[&#x27;<span class="title">sister</span>&#x27;]</span></span><br><span class="line"><span class="class">				# <span class="title">Comment</span>是一个特殊类型对象 像注释..</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">markup</span> = &quot;&lt;<span class="title">b</span>&gt;&lt;!--<span class="title">Hey</span>, <span class="title">buddy</span>. <span class="title">Want</span> <span class="title">to</span> <span class="title">buy</span> <span class="title">a</span> <span class="title">used</span> <span class="title">parser</span>?--&gt;&lt;/<span class="title">b</span>&gt;&quot;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">soup</span> = <span class="title">BeautifulSoup</span>(<span class="title">markup</span>)</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">comment</span> = <span class="title">soup</span>.<span class="title">b</span>.<span class="title">string</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span>(<span class="title">comment</span>)</span></span><br><span class="line"><span class="class"># &lt;<span class="title">class</span> &#x27;<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Comment</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/03/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%89)%20%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/03/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%89)%20%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" class="post-title-link" itemprop="url">微信公众号开发之定义菜单</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-03T00:00:00+08:00">2021-09-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-06 11:48:21" itemprop="dateModified" datetime="2021-09-06T11:48:21+08:00">2021-09-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">微信公众号开发</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>401</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>上文我们已经搭建好了一个后端服务也可以监听关注事件，班纳睿老师也在demo里设置了其他的所有消息及事件的处理方法，直接照搬就好了。感谢班大大！接下来继续学习下自定义菜单的设置。</p>
+</blockquote>
+<h2 id="界面操作设置菜单"><a href="#界面操作设置菜单" class="headerlink" title="界面操作设置菜单"></a>界面操作设置菜单</h2><p>因为测试的公众号没有界面操作这里需要申请一个个人公众号。假定你已经会申请了，如果不会操作可以参照结尾连接。</p>
+<p>进入，<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">公众号开发平台</a>，登录自己申请的个人公众号(订阅号)，点击左侧 内容与互动 -&gt; 自定义菜单即可。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210903115639500.png" alt="image-20210903115639500"></p>
+<p>我这里停用了这个菜单配置功能，还需要先去启用。进入 设置与开发 -&gt; 基本配置，关闭服务器配置。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210903115856691.png" alt="image-20210903115856691"></p>
+<p>再进入自定义菜单。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210903115946552.png" alt="image-20210903115946552"></p>
+<p>可以开始设置了。</p>
+<h2 id="接口设置菜单"><a href="#接口设置菜单" class="headerlink" title="接口设置菜单"></a>接口设置菜单</h2><p>界面设置的公众号菜单只能发布文章、图片、音频、视频等。不能自定义页面。所以我们要配置自定义的菜单及H5地址。</p>
+<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Custom_Menus/Creating_Custom-Defined_Menu.html">文档-自定义菜单</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/ruocy/java_demo/tree/master/boot-wechat">代码地址</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://kf.qq.com/faq/120911VrYVrA151009eIrYvy.html">(个人)注册公众平台步骤</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://gitee.com/binary/weixin-java-mp-demo-springboot">班纳睿-基于Spring Boot 和 WxJava 实现的微信公众号Java后端Demo，支持多公众号</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/02/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/02/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/" class="post-title-link" itemprop="url">微信公众号开发之事件监听</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T00:00:00+08:00">2021-09-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-03 10:22:16" itemprop="dateModified" datetime="2021-09-03T10:22:16+08:00">2021-09-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">微信公众号开发</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>上文我们已经搭建好了一个后端服务，并且可以和微信服务正常认证了，接下来我们尝试着监听关注、取消关注等事件并尝试被动、主动回复粉丝消息等。</p>
+</blockquote>
+<h2 id="接收事件推送"><a href="#接收事件推送" class="headerlink" title="接收事件推送"></a>接收事件推送</h2><h3 id="数据传输方式"><a href="#数据传输方式" class="headerlink" title="数据传输方式"></a>数据传输方式</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Receiving_event_pushes.html">文档地址</a></p>
+<p>用户在关注与取消关注公众号时，微信会把这个事件推送到开发者填写的URL。</p>
+<p>参数的推送格式大致如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">我配置的URL: http://114.115.147.234/wx/portal/wxc......5</span><br><span class="line">URL: /wx/portal/wxc..........5?signature=930593db8&amp;timestamp=1630568875&amp;nonce=12892</span><br><span class="line">数据：</span><br><span class="line">&lt;xml&gt;</span><br><span class="line">    &lt;ToUserName&gt;&lt;![CDATA[gh_1....5]]&gt;&lt;/ToUserName&gt;</span><br><span class="line">    &lt;FromUserName&gt;&lt;![CDATA[oFiT_wc.....sGHU]]&gt;&lt;/FromUserName&gt;</span><br><span class="line">    &lt;CreateTime&gt;1630568875&lt;/CreateTime&gt;</span><br><span class="line">    &lt;MsgType&gt;&lt;![CDATA[event]]&gt;&lt;/MsgType&gt;</span><br><span class="line">    &lt;Event&gt;&lt;![CDATA[subscribe]]&gt;&lt;/Event&gt;</span><br><span class="line">    &lt;EventKey&gt;&lt;![CDATA[]]&gt;&lt;/EventKey&gt;</span><br><span class="line">&lt;/xml&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/02/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80)%20%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,7 +675,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-09-01 00:00:00 / 修改时间：18:12:01" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+08:00">2021-09-01</time>
+      <time title="创建时间：2021-09-01 00:00:00 / 修改时间：18:30:15" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+08:00">2021-09-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,14 +695,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.5k</span>
+      <span>7.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>7 分钟</span>
     </span>
 </div>
 
@@ -279,6 +719,100 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/09/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80)%20%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/" class="post-title-link" itemprop="url">Maven编译生成war包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-12 00:00:00 / 修改时间：14:37:47" itemprop="dateCreated datePublished" datetime="2021-08-12T00:00:00+08:00">2021-08-12</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>接手项目平时的构建都是手动上传编译后的文件，比较麻烦。这里梳理构建war包的过程并记录构建中遇到的各类问题。</p>
+</blockquote>
+<h2 id="构建war包"><a href="#构建war包" class="headerlink" title="构建war包"></a>构建war包</h2><ol>
+<li><p>mvn clean package 打包报错，“编码GBK的不可映射字符”。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812101658940.png" alt="image-20210812101658940"></p>
+<p>检查步骤：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -379,100 +913,6 @@
 <p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812150551294.png" alt="image-20210812150551294"></p>
 <p>接下来我们先把包发布到服务器。</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/" class="post-title-link" itemprop="url">Maven编译生成war包</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-08-12 00:00:00 / 修改时间：14:37:47" itemprop="dateCreated datePublished" datetime="2021-08-12T00:00:00+08:00">2021-08-12</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>接手项目平时的构建都是手动上传编译后的文件，比较麻烦。这里梳理构建war包的过程并记录构建中遇到的各类问题。</p>
-</blockquote>
-<h2 id="构建war包"><a href="#构建war包" class="headerlink" title="构建war包"></a>构建war包</h2><ol>
-<li><p>mvn clean package 打包报错，“编码GBK的不可映射字符”。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812101658940.png" alt="image-20210812101658940"></p>
-<p>检查步骤：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -798,378 +1238,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/21/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B9%9D%EF%BC%89%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/21/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B9%9D%EF%BC%89%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">SpringCloud学习 | 第九篇 微服务部署</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-21T00:00:00+08:00">2021-06-21</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-02 16:12:52" itemprop="dateModified" datetime="2021-07-02T16:12:52+08:00">2021-07-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringCloud%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">SpringCloud从零开始构建微服务</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>377</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Jekins安装"><a href="#Jekins安装" class="headerlink" title="Jekins安装"></a>Jekins安装</h3><h4 id="Windows下的安装"><a href="#Windows下的安装" class="headerlink" title="Windows下的安装"></a>Windows下的安装</h4><h4 id="Linux下的安装"><a href="#Linux下的安装" class="headerlink" title="Linux下的安装"></a>Linux下的安装</h4><h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><h4 id="Pom依赖"><a href="#Pom依赖" class="headerlink" title="Pom依赖"></a>Pom依赖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">  &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">       &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">       &lt;configuration&gt;</span><br><span class="line">         &lt;executable&gt;true&lt;/executable&gt;</span><br><span class="line">       &lt;/configuration&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">  &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
-
-<p>mvn clean package -Dskip.test=true 构建fat-jar</p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/18/%E8%8B%B1%E8%AF%AD%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/18/%E8%8B%B1%E8%AF%AD%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">英语笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-06-18 00:00:00 / 修改时间：16:48:02" itemprop="dateCreated datePublished" datetime="2021-06-18T00:00:00+08:00">2021-06-18</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>129</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><blockquote>
-<p>英语题型分布：</p>
-<p>完形填空，20道题，每题0.5分。满分10分                6</p>
-<p>阅读理解，20道题，每题2分。满分40分                  24</p>
-<p>新题型，10分                                                            8</p>
-<p>翻译题型，英译汉，一共15分                                   10</p>
-<p>英语写作，小作文10分，大作文15分。满分25分。 6 + 10</p>
-<p>计划得分60分。</p>
-</blockquote>
-<h3 id="完形填空"><a href="#完形填空" class="headerlink" title="完形填空"></a>完形填空</h3><blockquote>
-<p>第一句往往都是题意。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/17/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/17/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">数学笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-06-17T00:00:00+08:00">2021-06-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-18 10:44:38" itemprop="dateModified" datetime="2021-06-18T10:44:38+08:00">2021-06-18</time>
-      </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>101</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h3><blockquote>
-<p>数学一共25道题，3分一个，满分75分。</p>
-<p>计划答对20+，得分60+</p>
-<p>去年的考题应用题9道，几何7道，数据分析5道，几何2道，其他2道。</p>
-</blockquote>
-<h3 id="笔记点"><a href="#笔记点" class="headerlink" title="笔记点"></a>笔记点</h3><h4 id="1-数"><a href="#1-数" class="headerlink" title="1. 数"></a>1. 数</h4><h4 id="5-概率与排列组合"><a href="#5-概率与排列组合" class="headerlink" title="5.概率与排列组合"></a>5.概率与排列组合</h4><ol>
-<li>加法原理: 分类原理</li>
-<li>乘法原理: 分步原理 </li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/03/Maven%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/03/Maven%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Maven常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-06-03 00:00:00 / 修改时间：17:01:40" itemprop="dateCreated datePublished" datetime="2021-06-03T00:00:00+08:00">2021-06-03</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>408</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="如何添加本地jar包到maven仓库"><a href="#如何添加本地jar包到maven仓库" class="headerlink" title="如何添加本地jar包到maven仓库"></a>如何添加本地jar包到maven仓库</h3><p>安装指定文件到本地仓库命令：mvn install:install-file</p>
-<p><strong>cmd打开命令行，不要用powerShell</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-DgroupId=&lt;groupId&gt;       : 设置项目代码的包名(一般用组织名)</span><br><span class="line">-DartifactId=&lt;artifactId&gt; : 设置项目名或模块名 </span><br><span class="line">-Dversion=1.0.0           : 版本号</span><br><span class="line">-Dpackaging=jar           : 什么类型的文件(jar包)</span><br><span class="line">-Dfile=&lt;myfile.jar&gt;       : 指定jar文件路径与文件名(同目录只需文件名)</span><br><span class="line">安装命令实例：</span><br><span class="line">mvn install:install-file -DgroupId=io.netty -DartifactId=netty-all -Dversion=4.1.58.Final -Dpackaging=jar -Dfile=D:\netty-all-4.1.58.Final.jar</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210603164713209.png" alt="image-20210603164713209"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 <script src="/js/comments.js"></script>
 </div>

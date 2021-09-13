@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_48px.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_48px.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="上文我们已经搭建好了一个后端服务，并且可以和微信服务正常认证了，接下来我们尝试着监听关注、取消关注等事件并尝试被动、主动回复粉丝消息等。  接收事件推送数据传输方式文档地址 用户在关注与取消关注公众号时，微信会把这个事件推送到开发者填写的URL。 参数的推送格式大致如下： 123456789101112我配置的URL: http:&#x2F;&#x2F;114.115.147.234&#x2F;wx&#x2F;portal&#x2F;wxc..">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信公众号开发之事件监听">
+<meta property="og:url" content="http://example.com/2021/09/02/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="上文我们已经搭建好了一个后端服务，并且可以和微信服务正常认证了，接下来我们尝试着监听关注、取消关注等事件并尝试被动、主动回复粉丝消息等。  接收事件推送数据传输方式文档地址 用户在关注与取消关注公众号时，微信会把这个事件推送到开发者填写的URL。 参数的推送格式大致如下： 123456789101112我配置的URL: http:&#x2F;&#x2F;114.115.147.234&#x2F;wx&#x2F;portal&#x2F;wxc..">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210902173843927.png">
+<meta property="article:published_time" content="2021-09-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-03T02:22:16.548Z">
+<meta property="article:author" content="Eden 懒散老马">
+<meta property="article:tag" content="公众号">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210902173843927.png">
+
+
+<link rel="canonical" href="http://example.com/2021/09/02/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;http:&#x2F;&#x2F;example.com&#x2F;2021&#x2F;09&#x2F;02&#x2F;%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;09&#x2F;02&#x2F;微信公众号开发（二) 事件监听&#x2F;&quot;,&quot;title&quot;:&quot;微信公众号开发之事件监听&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>微信公众号开发之事件监听 | Hexo</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一条瞎扑腾的咸鱼</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E6%94%B6%E4%BA%8B%E4%BB%B6%E6%8E%A8%E9%80%81"><span class="nav-number">1.</span> <span class="nav-text">接收事件推送</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">数据传输方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E5%86%99"><span class="nav-number">1.2.</span> <span class="nav-text">代码编写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Eden 懒散老马"
+      src="/images/head.jpg">
+  <p class="site-author-name" itemprop="name">Eden 懒散老马</p>
+  <div class="site-description" itemprop="description">一条瞎扑腾的咸鱼</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/02/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%BA%8C)%20%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信公众号开发之事件监听
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T00:00:00+08:00">2021-09-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-03 10:22:16" itemprop="dateModified" datetime="2021-09-03T10:22:16+08:00">2021-09-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">微信公众号开发</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>上文我们已经搭建好了一个后端服务，并且可以和微信服务正常认证了，接下来我们尝试着监听关注、取消关注等事件并尝试被动、主动回复粉丝消息等。</p>
+</blockquote>
+<h2 id="接收事件推送"><a href="#接收事件推送" class="headerlink" title="接收事件推送"></a>接收事件推送</h2><h3 id="数据传输方式"><a href="#数据传输方式" class="headerlink" title="数据传输方式"></a>数据传输方式</h3><p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Receiving_event_pushes.html">文档地址</a></p>
+<p>用户在关注与取消关注公众号时，微信会把这个事件推送到开发者填写的URL。</p>
+<p>参数的推送格式大致如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">我配置的URL: http://114.115.147.234/wx/portal/wxc......5</span><br><span class="line">URL: /wx/portal/wxc..........5?signature=930593db8&amp;timestamp=1630568875&amp;nonce=12892</span><br><span class="line">数据：</span><br><span class="line">&lt;xml&gt;</span><br><span class="line">    &lt;ToUserName&gt;&lt;![CDATA[gh_1....5]]&gt;&lt;/ToUserName&gt;</span><br><span class="line">    &lt;FromUserName&gt;&lt;![CDATA[oFiT_wc.....sGHU]]&gt;&lt;/FromUserName&gt;</span><br><span class="line">    &lt;CreateTime&gt;1630568875&lt;/CreateTime&gt;</span><br><span class="line">    &lt;MsgType&gt;&lt;![CDATA[event]]&gt;&lt;/MsgType&gt;</span><br><span class="line">    &lt;Event&gt;&lt;![CDATA[subscribe]]&gt;&lt;/Event&gt;</span><br><span class="line">    &lt;EventKey&gt;&lt;![CDATA[]]&gt;&lt;/EventKey&gt;</span><br><span class="line">&lt;/xml&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>URL会把认证的参数和加解密信息以param的形式在url上提交，数据以xml的形式传递。</p>
+<h3 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h3><p>前文我们在WxMpConfiguration中的messageRouter的代码注释掉了，现在我们放开关注事件代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> SubscribeHandler subscribeHandler;</span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> WxMpMessageRouter <span class="title">messageRouter</span><span class="params">(WxMpService wxMpService)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> WxMpMessageRouter newRouter = <span class="keyword">new</span> WxMpMessageRouter(wxMpService);</span><br><span class="line">    <span class="comment">// 关注事件</span></span><br><span class="line">    newRouter.rule()			<span class="comment">//开启一个新的route规则</span></span><br><span class="line">             .async(<span class="keyword">false</span>)		<span class="comment">//设置是否同步</span></span><br><span class="line">             .msgType(EVENT)	<span class="comment">//route规则处理的消息类型</span></span><br><span class="line">             .event(SUBSCRIBE)、<span class="comment">//event类型</span></span><br><span class="line">             .handler(<span class="keyword">this</span>.subscribeHandler)<span class="comment">//具体的处理类</span></span><br><span class="line">             .end();		   <span class="comment">//规则结束，添加进router的rules集合</span></span><br><span class="line">    <span class="keyword">return</span> newRouter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SubscribeHandler关注事件处理类和父类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractHandler</span> <span class="keyword">implements</span> <span class="title">WxMpMessageHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubscribeHandler</span> <span class="keyword">extends</span> <span class="title">AbstractHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> WxMpXmlOutMessage <span class="title">handle</span><span class="params">(WxMpXmlMessage wxMessage,</span></span></span><br><span class="line"><span class="params"><span class="function">                                    Map&lt;String, Object&gt; context, WxMpService weixinService,</span></span></span><br><span class="line"><span class="params"><span class="function">                                    WxSessionManager sessionManager)</span> <span class="keyword">throws</span> WxErrorException </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.logger.info(<span class="string">&quot;新关注用户 OPENID: &quot;</span> + wxMessage.getFromUser());</span><br><span class="line">        String nickName = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">        <span class="comment">// 获取微信用户基本信息</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            WxMpUser userWxInfo = weixinService.getUserService()</span><br><span class="line">                .userInfo(wxMessage.getFromUser(), <span class="keyword">null</span>);</span><br><span class="line">            <span class="keyword">if</span> (userWxInfo != <span class="keyword">null</span>) &#123;</span><br><span class="line">                nickName = userWxInfo.getNickname();</span><br><span class="line">                <span class="comment">// TODO 可以添加关注用户到本地数据库</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (WxErrorException e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (e.getError().getErrorCode() == <span class="number">48001</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.logger.info(<span class="string">&quot;该公众号没有获取用户信息权限！&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        WxMpXmlOutMessage responseResult = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            responseResult = <span class="keyword">this</span>.handleSpecial(wxMessage);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">this</span>.logger.error(e.getMessage(), e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (responseResult != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> responseResult;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> TextBuilder().build(String.format(<span class="string">&quot;%s,感谢关注&quot;</span>, nickName), wxMessage, weixinService);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">this</span>.logger.error(e.getMessage(), e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理特殊请求，比如如果是扫码进来的，可以做相应处理</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> WxMpXmlOutMessage <span class="title">handleSpecial</span><span class="params">(WxMpXmlMessage wxMessage)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//TODO</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加消息构建类TextBuilder和AbstractBuilder</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractBuilder</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> WxMpXmlOutMessage <span class="title">build</span><span class="params">(String content,</span></span></span><br><span class="line"><span class="params"><span class="function">                                            WxMpXmlMessage wxMessage, WxMpService service)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextBuilder</span> <span class="keyword">extends</span> <span class="title">AbstractBuilder</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> WxMpXmlOutMessage <span class="title">build</span><span class="params">(String content, WxMpXmlMessage wxMessage,</span></span></span><br><span class="line"><span class="params"><span class="function">                                   WxMpService service)</span> </span>&#123;</span><br><span class="line">        WxMpXmlOutTextMessage m = WxMpXmlOutMessage.TEXT().content(content)</span><br><span class="line">            .fromUser(wxMessage.getToUser()).toUser(wxMessage.getFromUser())</span><br><span class="line">            .build();</span><br><span class="line">        <span class="keyword">return</span> m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>基础工作都做完了，现在我们在WxPortalController处理微信的关注事件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// application/xml表示微信提交的xml数据，requestBody接收xml数据</span></span><br><span class="line"><span class="meta">@PostMapping(produces = &quot;application/xml; charset=UTF-8&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">post</span><span class="params">(<span class="meta">@PathVariable</span> String appid,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestBody</span> String requestBody,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestParam(&quot;signature&quot;)</span> String signature,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestParam(&quot;timestamp&quot;)</span> String timestamp,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestParam(&quot;nonce&quot;)</span> String nonce,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestParam(&quot;openid&quot;)</span> String openid,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestParam(name = &quot;encrypt_type&quot;, required = false)</span> String encType,</span></span></span><br><span class="line"><span class="params"><span class="function">                   <span class="meta">@RequestParam(name = &quot;msg_signature&quot;, required = false)</span> String msgSignature)</span> </span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;\n接收微信请求：[openid=[&#123;&#125;], [signature=[&#123;&#125;], encType=[&#123;&#125;], msgSignature=[&#123;&#125;],&quot;</span></span><br><span class="line">                    + <span class="string">&quot; timestamp=[&#123;&#125;], nonce=[&#123;&#125;], requestBody=[\n&#123;&#125;\n] &quot;</span>,</span><br><span class="line">            openid, signature, encType, msgSignature, timestamp, nonce, requestBody);</span><br><span class="line">    <span class="comment">// 切换appId</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.wxMpService.switchover(appid)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(String.format(<span class="string">&quot;未找到对应appid=[%s]的配置，请核实！&quot;</span>, appid));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 验签</span></span><br><span class="line">    <span class="keyword">if</span> (!wxMpService.checkSignature(timestamp, nonce, signature)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;非法请求，可能属于伪造的请求！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    String out = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (encType == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 明文传输的消息：解析body</span></span><br><span class="line">        WxMpXmlMessage inMessage = WxMpXmlMessage.fromXml(requestBody);</span><br><span class="line">        <span class="comment">//根据消息进行路由转发</span></span><br><span class="line">        WxMpXmlOutMessage outMessage = <span class="keyword">this</span>.route(inMessage);</span><br><span class="line">        <span class="keyword">if</span> (outMessage == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out = outMessage.toXml();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;aes&quot;</span>.equalsIgnoreCase(encType)) &#123;</span><br><span class="line">        <span class="comment">// aes加密的消息</span></span><br><span class="line">        WxMpXmlMessage inMessage = WxMpXmlMessage.fromEncryptedXml(requestBody, wxMpService.getWxMpConfigStorage(),</span><br><span class="line">                timestamp, nonce, msgSignature);</span><br><span class="line">        log.debug(<span class="string">&quot;\n消息解密后内容为：\n&#123;&#125; &quot;</span>, inMessage.toString());</span><br><span class="line">        WxMpXmlOutMessage outMessage = <span class="keyword">this</span>.route(inMessage);</span><br><span class="line">        <span class="keyword">if</span> (outMessage == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        out = outMessage.toEncryptedXml(wxMpService.getWxMpConfigStorage());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    log.debug(<span class="string">&quot;\n组装回复信息：&#123;&#125;&quot;</span>, out);</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> WxMpXmlOutMessage <span class="title">route</span><span class="params">(WxMpXmlMessage message)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.messageRouter.route(message);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        log.error(<span class="string">&quot;路由消息时出现异常！&quot;</span>, e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启服务，重新关注公众号，可以收到回复消息了吧。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210902173843927.png" alt="image-20210902173843927"></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/ruocy/java_demo/tree/master/boot-wechat">代码地址</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/binary/weixin-java-mp-demo-springboot">班纳睿-基于Spring Boot 和 WxJava 实现的微信公众号Java后端Demo，支持多公众号</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag"># 公众号</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80)%20%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/" rel="prev" title="微信公众号开发之准备工作">
+                  <i class="fa fa-chevron-left"></i> 微信公众号开发之准备工作
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/03/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%89)%20%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" rel="next" title="微信公众号开发之定义菜单">
+                  微信公众号开发之定义菜单 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Eden 懒散老马</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+--!>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
