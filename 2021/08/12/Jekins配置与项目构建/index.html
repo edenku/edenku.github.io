@@ -20,19 +20,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;example.com&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Pisces&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="配置Git 配置JDK 配置maven 到这里，我们就已经可以正常构建了。  接下来我们先把包发布到服务器。">
+<meta name="description" content="配置Git 配置JDK 配置maven 到这里，我们就已经可以正常构建了。  配置自动构建job新建一个maven任务  添加描述配置历史构建策略  添加代码地址  指定分支  这里也可以将分支参数化。后续说明 指定pom并执行打包命令  clean package -Ptest -Dmaven.test.skip&#x3D;true # -Ptest是我的配置文件差异，默认可以不要   Post Step">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jekins配置与项目构建">
 <meta property="og:url" content="http://example.com/2021/08/12/Jekins%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="配置Git 配置JDK 配置maven 到这里，我们就已经可以正常构建了。  接下来我们先把包发布到服务器。">
+<meta property="og:description" content="配置Git 配置JDK 配置maven 到这里，我们就已经可以正常构建了。  配置自动构建job新建一个maven任务  添加描述配置历史构建策略  添加代码地址  指定分支  这里也可以将分支参数化。后续说明 指定pom并执行打包命令  clean package -Ptest -Dmaven.test.skip&#x3D;true # -Ptest是我的配置文件差异，默认可以不要   Post Step">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812144931741.png">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812145310634.png">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812145516379.png">
 <meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812150551294.png">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174212266.png">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174409187.png">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174820405.png">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145400866.png">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145507909.png">
+<meta property="og:image" content="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145713737.png">
 <meta property="article:published_time" content="2021-08-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-08-12T07:06:25.721Z">
+<meta property="article:modified_time" content="2021-10-29T07:03:32.581Z">
 <meta property="article:author" content="Eden 懒散老马">
 <meta property="article:tag" content="Windows, jekins">
 <meta name="twitter:card" content="summary">
@@ -152,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGit"><span class="nav-number">1.</span> <span class="nav-text">配置Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEJDK"><span class="nav-number">2.</span> <span class="nav-text">配置JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEmaven"><span class="nav-number">3.</span> <span class="nav-text">配置maven</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGit"><span class="nav-number">1.</span> <span class="nav-text">配置Git</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEJDK"><span class="nav-number"></span> <span class="nav-text">配置JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEmaven"><span class="nav-number"></span> <span class="nav-text">配置maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BAjob"><span class="nav-number">1.</span> <span class="nav-text">配置自动构建job</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,20 +174,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -243,10 +249,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-08-12 00:00:00 / 修改时间：15:06:25" itemprop="dateCreated datePublished" datetime="2021-08-12T00:00:00+08:00">2021-08-12</time>
+      <time title="创建时间：2021-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-12T00:00:00+08:00">2021-08-12</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-29 15:03:32" itemprop="dateModified" datetime="2021-10-29T15:03:32+08:00">2021-10-29</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -265,7 +277,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>49</span>
+      <span>733</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -283,12 +295,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h2><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812144931741.png" alt="image-20210812144931741"></p>
+        <h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812144931741.png" alt="image-20210812144931741"></p>
 <h2 id="配置JDK"><a href="#配置JDK" class="headerlink" title="配置JDK"></a>配置JDK</h2><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812145310634.png" alt="image-20210812145310634"></p>
 <h2 id="配置maven"><a href="#配置maven" class="headerlink" title="配置maven"></a>配置maven</h2><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812145516379.png" alt="image-20210812145516379"></p>
 <p>到这里，我们就已经可以正常构建了。</p>
 <p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812150551294.png" alt="image-20210812150551294"></p>
-<p>接下来我们先把包发布到服务器。</p>
+<h3 id="配置自动构建job"><a href="#配置自动构建job" class="headerlink" title="配置自动构建job"></a>配置自动构建job</h3><p>新建一个maven任务</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174212266.png" alt="image-20211028174212266"></p>
+<p>添加描述配置历史构建策略</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174409187.png" alt="image-20211028174409187"></p>
+<p>添加代码地址</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174820405.png" alt="image-20211028174820405"></p>
+<p>指定分支</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145400866.png" alt="image-20211029145400866"></p>
+<p>这里也可以将分支参数化。后续说明</p>
+<p>指定pom并执行打包命令</p>
+<blockquote>
+<p>clean package -Ptest -Dmaven.test.skip=true # -Ptest是我的配置文件差异，默认可以不要</p>
+</blockquote>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145507909.png" alt="image-20211029145507909"></p>
+<p>Post Steps</p>
+<p>打包完成后，执行Shell脚本进行本地部署</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145713737.png" alt="image-20211029145713737"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 备份</span></span></span><br><span class="line">rm -rf /home/bak/pro-xxx.war</span><br><span class="line">cp -rf /home/tomcat/webapps/pro-xxx.war /home/bak/</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 拷贝</span></span></span><br><span class="line">mv -f target/pro-xxx.war /home/tomcat/webapps/</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># kill 进程</span></span></span><br><span class="line">ps -ef|grep tomcat/ |grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs -r kill -9</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 重启</span></span></span><br><span class="line">/home/tomcat/bin/startup.sh</span><br></pre></td></tr></table></figure>
+
+<p>到这儿，一个简单的Java-Maven项目的构建job就配置完了。</p>
+<blockquote>
+<p>这里部署的时候遇到一个问题，console的日志里看到tomcat正常启动，但是却看不到tomcat进程。查询原因是Jenkins默认会在build后kill掉所有的衍生进程。</p>
+<p>解决方案1：</p>
+<ol>
+<li>execute shell中加入：BUILD_ID=DONTKILLME,即可防止jenkins杀死启动的tomcat进程</li>
+<li>修改/etc/sysconfig/jenkins配置，在JENKINS_JAVA_OPTIONS中加入-Dhudson.util.ProcessTree.disable=true 并重启jenkins。</li>
+</ol>
+</blockquote>
 
     </div>
 
@@ -305,13 +344,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/07/30/Windows%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/" rel="prev" title="Windows安装教程之Jekins的安装">
-                  <i class="fa fa-chevron-left"></i> Windows安装教程之Jekins的安装
+                <a href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/" rel="prev" title="Maven编译生成war包">
+                  <i class="fa fa-chevron-left"></i> Maven编译生成war包
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/" rel="next" title="Maven编译生成war包">
-                  Maven编译生成war包 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/09/01/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80)%20%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/" rel="next" title="微信公众号开发之准备工作">
+                  微信公众号开发之准备工作 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

@@ -159,20 +159,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -201,6 +201,536 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/12/Jekins%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/12/Jekins%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA/" class="post-title-link" itemprop="url">Jekins配置与项目构建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-12T00:00:00+08:00">2021-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-29 15:03:32" itemprop="dateModified" datetime="2021-10-29T15:03:32+08:00">2021-10-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>733</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812144931741.png" alt="image-20210812144931741"></p>
+<h2 id="配置JDK"><a href="#配置JDK" class="headerlink" title="配置JDK"></a>配置JDK</h2><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812145310634.png" alt="image-20210812145310634"></p>
+<h2 id="配置maven"><a href="#配置maven" class="headerlink" title="配置maven"></a>配置maven</h2><p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812145516379.png" alt="image-20210812145516379"></p>
+<p>到这里，我们就已经可以正常构建了。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812150551294.png" alt="image-20210812150551294"></p>
+<h3 id="配置自动构建job"><a href="#配置自动构建job" class="headerlink" title="配置自动构建job"></a>配置自动构建job</h3><p>新建一个maven任务</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174212266.png" alt="image-20211028174212266"></p>
+<p>添加描述配置历史构建策略</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174409187.png" alt="image-20211028174409187"></p>
+<p>添加代码地址</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211028174820405.png" alt="image-20211028174820405"></p>
+<p>指定分支</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145400866.png" alt="image-20211029145400866"></p>
+<p>这里也可以将分支参数化。后续说明</p>
+<p>指定pom并执行打包命令</p>
+<blockquote>
+<p>clean package -Ptest -Dmaven.test.skip=true # -Ptest是我的配置文件差异，默认可以不要</p>
+</blockquote>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145507909.png" alt="image-20211029145507909"></p>
+<p>Post Steps</p>
+<p>打包完成后，执行Shell脚本进行本地部署</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20211029145713737.png" alt="image-20211029145713737"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 备份</span></span></span><br><span class="line">rm -rf /home/bak/pro-xxx.war</span><br><span class="line">cp -rf /home/tomcat/webapps/pro-xxx.war /home/bak/</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 拷贝</span></span></span><br><span class="line">mv -f target/pro-xxx.war /home/tomcat/webapps/</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># kill 进程</span></span></span><br><span class="line">ps -ef|grep tomcat/ |grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs -r kill -9</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 重启</span></span></span><br><span class="line">/home/tomcat/bin/startup.sh</span><br></pre></td></tr></table></figure>
+
+<p>到这儿，一个简单的Java-Maven项目的构建job就配置完了。</p>
+<blockquote>
+<p>这里部署的时候遇到一个问题，console的日志里看到tomcat正常启动，但是却看不到tomcat进程。查询原因是Jenkins默认会在build后kill掉所有的衍生进程。</p>
+<p>解决方案1：</p>
+<ol>
+<li>execute shell中加入：BUILD_ID=DONTKILLME,即可防止jenkins杀死启动的tomcat进程</li>
+<li>修改/etc/sysconfig/jenkins配置，在JENKINS_JAVA_OPTIONS中加入-Dhudson.util.ProcessTree.disable=true 并重启jenkins。</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/" class="post-title-link" itemprop="url">Maven编译生成war包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-08-12 00:00:00 / 修改时间：14:37:47" itemprop="dateCreated datePublished" datetime="2021-08-12T00:00:00+08:00">2021-08-12</time>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>接手项目平时的构建都是手动上传编译后的文件，比较麻烦。这里梳理构建war包的过程并记录构建中遇到的各类问题。</p>
+</blockquote>
+<h2 id="构建war包"><a href="#构建war包" class="headerlink" title="构建war包"></a>构建war包</h2><ol>
+<li><p>mvn clean package 打包报错，“编码GBK的不可映射字符”。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210812101658940.png" alt="image-20210812101658940"></p>
+<p>检查步骤：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/12/Maven%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90war%E5%8C%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/30/Windows%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/30/Windows%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Windows安装教程之Jekins的安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-30T00:00:00+08:00">2021-07-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-08-12 14:46:46" itemprop="dateModified" datetime="2021-08-12T14:46:46+08:00">2021-08-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>171</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h3><p>OS: Windows 10</p>
+<p>JDK: 1.8.0_171</p>
+<p>Maven: 3.6.3</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p><a target="_blank" rel="noopener" href="https://www.jenkins.io/">官网</a> 下载Jenkins安装包。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210730104534113.png" alt="image-20210730104534113"></p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>一路傻瓜安装即可。</p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><p>这里直接使用命令启动。管理员权限打开cmd或Power Shell。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar jenkins.war --httpPort=8080</span><br></pre></td></tr></table></figure>
+
+<p>启动Jenkins服务。看到如下信息表示启动成功。</p>
+<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210730104830318.png" alt="image-20210730104830318"></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/02/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/07/02/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Linux安装教程之Jekins的安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-07-02 00:00:00 / 修改时间：16:23:09" itemprop="dateCreated datePublished" datetime="2021-07-02T00:00:00+08:00">2021-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 当前操作系统版本</span><br><span class="line">[root@localhost ~]# cat /etc/redhat-release</span><br><span class="line">CentOS Linux release 7.4.1708 (Core) </span><br><span class="line"># 查看JDK版本</span><br><span class="line">[root@localhost ~]# java -version</span><br><span class="line">java version &quot;1.8.0_181&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_181-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)</span><br><span class="line"># 查看JDK安装目录</span><br><span class="line">[root@localhost ~]# echo $JAVA_HOME$</span><br><span class="line">/usr/local/jdk1.8.0_181$</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果没有安装JDK 请先安装JDK</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/02/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJekins%E7%9A%84%E5%AE%89%E8%A3%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/21/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BRedis%E7%9A%84%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/head.jpg">
+      <meta itemprop="name" content="Eden 懒散老马">
+      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/06/21/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BRedis%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Linux安装教程之Redis的安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-06-21 00:00:00 / 修改时间：15:56:53" itemprop="dateCreated datePublished" datetime="2021-06-21T00:00:00+08:00">2021-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a>
+        </span>
+    </span>
+
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>267</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://redis.io/download">https://redis.io/download</a></p>
+<p>当前最新版本6.2.4，下载并按照。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.redis.io/releases/redis-6.2.4.tar.gz</span><br><span class="line">tar xzf redis-6.2.4.tar.gz</span><br><span class="line">cd redis-6.2.4</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>编译后，src目录执行即可。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/21/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BRedis%E7%9A%84%E5%AE%89%E8%A3%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -705,520 +1235,6 @@
 <p>配置上面几项即可。操作手动执行一次，就可以看到调度日志中的结果了。</p>
 <p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210604154923206.png" alt="image-20210604154923206"></p>
 <h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><p>TODO…</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/28/Jmeter%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/28/Jmeter%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Jmeter安装与使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-28T00:00:00+08:00">2021-05-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-30 10:36:41" itemprop="dateModified" datetime="2021-07-30T10:36:41+08:00">2021-07-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>459</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Jmeter的安装"><a href="#Jmeter的安装" class="headerlink" title="Jmeter的安装"></a>Jmeter的安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>[<a target="_blank" rel="noopener" href="http://jmeter.apache.org/download_jmeter.cgi">官网</a>]</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210528163050542.png" alt="image-20210528163050542"></p>
-<p>下载后直接解压即可。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/28/Jmeter%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/26/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89%20Sentinel%E5%AE%9E%E7%8E%B0%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/26/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89%20Sentinel%E5%AE%9E%E7%8E%B0%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/" class="post-title-link" itemprop="url">SpringCloud学习 | 第七篇 Sentinel实现熔断与限流</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-26 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-26T00:00:00+08:00">2021-05-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-28 18:08:26" itemprop="dateModified" datetime="2021-05-28T18:08:26+08:00">2021-05-28</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/SpringCloud%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%9E%84%E5%BB%BA%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">SpringCloud从零开始构建微服务</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Sentinel 以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。</p>
-<p>Sentinel 具有以下特征:</p>
-<ul>
-<li><strong>丰富的应用场景</strong>：Sentinel 承接了阿里巴巴近 10 年的双十一大促流量的核心场景，例如秒杀（即突发流量控制在系统容量可以承受的范围）、消息削峰填谷、集群流量控制、实时熔断下游不可用应用等。</li>
-<li><strong>完备的实时监控</strong>：Sentinel 同时提供实时的监控功能。您可以在控制台中看到接入应用的单台机器秒级数据，甚至 500 台以下规模的集群的汇总运行情况。</li>
-<li><strong>广泛的开源生态</strong>：Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Dubbo、gRPC 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。</li>
-<li><strong>完善的 SPI 扩展点</strong>：Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现扩展接口来快速地定制逻辑。例如定制规则管理、适配动态数据源等。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/26/SpringCloud%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%83%EF%BC%89%20Sentinel%E5%AE%9E%E7%8E%B0%E7%86%94%E6%96%AD%E9%99%90%E6%B5%81/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/25/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJDK%E7%9A%84%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/25/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJDK%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Linux安装教程之JDK的安装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-05-25 00:00:00 / 修改时间：15:30:47" itemprop="dateCreated datePublished" datetime="2021-05-25T00:00:00+08:00">2021-05-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" itemprop="url" rel="index"><span itemprop="name">软件安装</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>909</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>[<a target="_blank" rel="noopener" href="https://repo.huaweicloud.com/java/jdk/">华为JDK镜像地址</a>]</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@ecs-a7d9 home]# wget https://repo.huaweicloud.com/java/jdk/8u192-b12/jdk-8u192-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210525151931568.png" alt="image-20210525151931568"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/25/Linux%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E4%B9%8BJDK%E7%9A%84%E5%AE%89%E8%A3%85/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/24/Git%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/24/Git%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Git命令整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-24T00:00:00+08:00">2021-05-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-29 11:01:40" itemprop="dateModified" datetime="2021-06-29T11:01:40+08:00">2021-06-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">常用命令</span></a>
-        </span>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>672</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h3><h4 id="下载指定tag项目"><a href="#下载指定tag项目" class="headerlink" title="下载指定tag项目"></a>下载指定tag项目</h4> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># git clone --branch [tags标签] [git地址]</span><br><span class="line">git clone --branch dubbo-2.5.4 https://gitee.com/apache/dubbo.git</span><br></pre></td></tr></table></figure>
-
-<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><h4 id="本地项目推送远程"><a href="#本地项目推送远程" class="headerlink" title="本地项目推送远程"></a>本地项目推送远程</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. git init 初始化本地项目</span><br><span class="line">PS D:\code\demo&gt; git init</span><br><span class="line">PS D:\code\demo&gt; git add .</span><br><span class="line">PS D:\code\demo&gt; git commit -m &#x27;init&#x27;</span><br><span class="line">2. 远程gitee/github创建空分支</span><br><span class="line">3. 本地关联远程分支</span><br><span class="line">PS D:\code\demo&gt; git remote add origin http://xx.xx.xx.xx:port/demo/demo.git</span><br><span class="line">4. 推送远程</span><br><span class="line">PS D:\code\demo&gt; git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<h3 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h3><h4 id="gitlab回滚代码"><a href="#gitlab回滚代码" class="headerlink" title="gitlab回滚代码"></a>gitlab回滚代码</h4><p>gitlab主master分支默认受保护，不允许任何人进行代码回滚，所以我们回滚需要先删除受保护标签。</p>
-<p><img src="C:%5CUsers%5Cci22578%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210629104157190.png" alt="image-20210629104157190"></p>
-<p>project-setting 去设置</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210629104419193.png" alt="image-20210629104419193"></p>
-<p>点击不再保护按钮。</p>
-<p><img src="https://gitee.com/ruocy/image_repo/raw/master/images/image-20210629104530667.png" alt="image-20210629104530667"></p>
-<p>接下来，我们就可以回滚到我们指定的代码提交记录了。</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset -<span class="literal">-hard</span> &lt;commit<span class="literal">-id</span>&gt;</span><br><span class="line">git push <span class="operator">-f</span>   <span class="comment">## 强制推送</span></span><br><span class="line"><span class="comment">## 输入用户密码即可</span></span><br></pre></td></tr></table></figure>
-
-<p>操作完以后最好还是把这个保护再添加回来。</p>
-<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 打标签</span><br><span class="line">git tag -a V1.0 -m &#x27;V1.0的描述&#x27;</span><br><span class="line"># 删除标签</span><br><span class="line">git tag -d V1.0</span><br><span class="line"># 推送远程</span><br><span class="line">git push origin V1.0</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/24/%E4%BC%98%E7%A7%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/head.jpg">
-      <meta itemprop="name" content="Eden 懒散老马">
-      <meta itemprop="description" content="一条瞎扑腾的咸鱼">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/24/%E4%BC%98%E7%A7%80%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/" class="post-title-link" itemprop="url">优秀的博客地址整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-05-24 00:00:00 / 修改时间：16:27:12" itemprop="dateCreated datePublished" datetime="2021-05-24T00:00:00+08:00">2021-05-24</time>
-    </span>
-
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>117</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>[<a target="_blank" rel="noopener" href="https://pdai.tech/">Java 全栈知识体系</a>]</p>
-<p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/sudadaipeng1">上面博客的博主CSDN</a>]</p>
-<p>[<a target="_blank" rel="noopener" href="https://www.fangzhipeng.com/">方志朋的专栏</a>]</p>
-<p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36850813">Java服务端妹子的CSDN</a>]</p>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>[<a target="_blank" rel="noopener" href="https://backlog.com/git-tutorial/cn/">猴子都能懂的GIT入门</a>]</p>
-<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/Eastmount">一个教书的程序员-杨秀璋</a>]</p>
-<h3 id="不好归类"><a href="#不好归类" class="headerlink" title="不好归类"></a>不好归类</h3><p>[<a target="_blank" rel="noopener" href="https://blog.csdn.net/chushoufengli">比较杂的一个博客CSDN</a>]</p>
-<p>[<a target="_blank" rel="noopener" href="https://chenyu.blog.csdn.net/article/details/79449026">优秀博客汇总地址</a>]</p>
 
       
     </div>
